@@ -37,7 +37,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  
+
   max-width: 1440px;
   margin:0 auto;
   background-color: #E5E5E5;
@@ -77,4 +77,11 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+:root {
+    --primary-grey:#858585;
+    --secondary-grey:#C7C7C7;
+    --accent-grey:#606060;
+    --green:#3D9B90;
 }
