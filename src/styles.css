@@ -95,3 +95,7 @@ select {
     --font-regular:400;
     --font-light:300;
 }
+
+body{
+  background-color: var(--secondary-grey);
+}

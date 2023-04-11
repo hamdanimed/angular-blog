@@ -1,0 +1,31 @@
+
+<header class="header-bar">
+    <div>
+        <a href="/"><fa-icon class="home-icon header-icon" [icon]="faHome"></fa-icon></a></div>
+        <div class="search-div">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <fa-icon class="header-icon search-icon" [icon]="faSearch"></fa-icon>
+            </div>
+            <div class="list-div">
+                <fa-icon class="list-icon header-icon" [icon]="faList"></fa-icon>
+            </div>
+        </div>
+        
+        <nav class="header-nav" id="header-nav">
+
+            <a class="profile" href="#">
+                <img src="https://picsum.photos/50" alt="profile icon">
+                <b>HAMDANIMED</b>
+            </a>
+            <a href="#" class="home-mobile">
+                <fa-icon class="header-icon" [icon]="faHome"></fa-icon>
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="logout-btn">
+                <fa-icon class="header-icon" [icon]="faSignOut"></fa-icon>
+                <span>Logout</span>
+            </a>
+        </nav> 
+</header>
