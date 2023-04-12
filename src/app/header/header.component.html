@@ -1,5 +1,5 @@
 
-<header class="header-bar">
+<header class="header-bar {{navOpen}}">
     <div>
         <a href="/"><fa-icon class="home-icon header-icon" [icon]="faHome"></fa-icon></a></div>
         <div class="search-div">
@@ -7,9 +7,7 @@
                 <input type="text" placeholder="Search">
                 <fa-icon class="header-icon search-icon" [icon]="faSearch"></fa-icon>
             </div>
-            <div class="list-div">
-                <fa-icon class="list-icon header-icon" [icon]="faList"></fa-icon>
-            </div>
+            <fa-icon class="list-icon header-icon" [icon]="faList" (click)="toggleMenu()"></fa-icon>
         </div>
         
         <nav class="header-nav" id="header-nav">
@@ -20,7 +18,8 @@
             </a>
             <a href="#" class="home-mobile">
                 <fa-icon class="header-icon" [icon]="faHome"></fa-icon>
-                <span>Home</span>
+                <span>Home <hr></span>
+                
             </a>
 
             <a href="#" class="logout-btn">

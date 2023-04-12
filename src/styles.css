@@ -41,7 +41,7 @@ body {
 
   max-width: 1440px;
   margin:0 auto;
-  background-color: #ffffff;
+  background-color: var(--bg-grey);
 
   font-family: 'Inter';
 }
@@ -89,13 +89,10 @@ select {
     --secondary-grey:#C7C7C7;
     --accent-grey:#606060;
     --green:#3D9B90;
+    --bg-grey : #E5E5E5; 
 
     --font-bold:700;
     --font-medium:500;
     --font-regular:400;
     --font-light:300;
-}
-
-body{
-  background-color: var(--secondary-grey);
 }
