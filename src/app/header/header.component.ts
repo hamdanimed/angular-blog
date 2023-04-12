@@ -13,7 +13,7 @@ export class HeaderComponent {
   faSignOut = faSignOut;
   faList = faList;
   faSearch = faSearch;
-  navOpen="open-nav";
+  navOpen="";
   toggleMenu(){
     console.log("toggleMenu");
     this.navOpen = (this.navOpen==="")?"open-nav":"";
