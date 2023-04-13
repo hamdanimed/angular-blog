@@ -28,7 +28,7 @@ export class InMemoryDataService implements InMemoryDataService{
     const followers: Follow[]=[
       {idFollower:12,idFollowed:13},
       {idFollower:12,idFollowed:13},
-      {idFollower:12,idFollowed:13},
+      {idFollower:12,idFollowed:14},
     ];
     const posts : Post[] = [
       {
