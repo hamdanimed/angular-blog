@@ -7,6 +7,7 @@ import { CommentInteraction } from './comment';
 
 import { faker } from '@faker-js/faker';
 import { Picture } from './picture';
+import { Follow } from './follow';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,11 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:4,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1995-12-06",bio:faker.lorem.paragraph()},
       {id:5,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2001-04-06",bio:faker.lorem.paragraph()}
     ];
+    const followers: Follow[]=[
+      {idFollower:12,idFollowed:13},
+      {idFollower:12,idFollowed:13},
+      {idFollower:12,idFollowed:13},
+    ];
     const posts : Post[] = [
       {
         id:12,
@@ -35,12 +41,9 @@ export class InMemoryDataService implements InMemoryDataService{
       }
     ];
     const comments : CommentInteraction[] =[
-      {
-        id:12,
-        postId:12,
-        date:faker.datatype.number({min:1681342105}),
-        content:faker.lorem.paragraph()
-      }
+      {id:12,postId:12,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:12,postId:12,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:13,postId:11,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
     ];
     const likes : Like[] =[
       {
@@ -59,7 +62,7 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:7,name:"business"},
       {id:8,name:"health & fitness"},
     ];
-    return {pictures,users,posts,comments,likes,categories};
+    return {pictures,users,followers,posts,comments,likes,categories};
   }
 
   genId<T extends Picture | User | Post | CommentInteraction | Like | Category>(myTable: T[]): number {
