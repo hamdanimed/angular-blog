@@ -90,6 +90,7 @@
 .post-stats{
     display: flex;
     flex-direction: row;
+    gap: 0.4rem;
 }
 .post-likes, .post-comments{
     text-decoration: none;
