@@ -52,6 +52,12 @@
     border: solid 2px var(--primary-grey);
     border-radius: 0.625rem;
     padding: 0.2rem 0.3rem;
+    transition-duration: 0.2s;
+}
+.profile-follow:hover{
+    background-color: var(--primary-grey);
+    border-color: var(--primary-grey);
+    color:white;
 }
 @media screen and (max-width: 1182px) {
     .profiles{
