@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
 
-import { Post } from '../data-types/post';
-import { Like } from '../data-types/like';
-import { Category } from '../data-types/category';
-import { User } from '../data-types/user';
-import { CommentInteraction } from '../data-types/comment';
-import { Picture } from '../data-types/picture';
-import { Follow } from '../data-types/follow';
+import { Post } from '../../data-types/post';
+import { Like } from '../../data-types/like';
+import { Category } from '../../data-types/category';
+import { User } from '../../data-types/user';
+import { CommentInteraction } from '../../data-types/comment';
+import { Picture } from '../../data-types/picture';
+import { Follow } from '../../data-types/follow';
 
 @Injectable({
   providedIn: 'root'

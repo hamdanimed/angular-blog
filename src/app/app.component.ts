@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FakeDataService } from './fake-data-service/fake-data.service';
+import { FakeDataService } from './services/fake-data-service/fake-data.service';
 import { User } from './data-types/user';
 
 @Component({
