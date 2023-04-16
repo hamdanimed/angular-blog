@@ -41,7 +41,10 @@
 
 .posts{
     display: flex;
+    flex-direction: column;
+    row-gap: 0.6rem;
     justify-content: center;
+    align-items: center;
     margin-top: 1rem;
 
 }

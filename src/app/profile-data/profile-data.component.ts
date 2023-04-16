@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-data.component.css']
 })
 export class ProfileDataComponent {
+  selectedSection='liked-posts';
 
 }

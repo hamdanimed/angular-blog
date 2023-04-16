@@ -17,6 +17,7 @@
         </a>
     </div>
     <div class="section-content">
-        <app-my-posts></app-my-posts>
+        <app-my-posts *ngIf="selectedSection==='my-posts'"></app-my-posts>
+        <app-liked-posts *ngIf="selectedSection==='liked-posts'"></app-liked-posts>
     </div>
 </div>

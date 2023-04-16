@@ -6,7 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { ProfileDataComponent } from './profile-data/profile-data.component';
-import { MyPostsComponent } from './my-posts/my-posts.component';
+import { MyPostsComponent } from './profile-data-sections/my-posts/my-posts.component';
+import { LikedPostsComponent } from './profile-data-sections/liked-posts/liked-posts.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MyPostsComponent } from './my-posts/my-posts.component';
     HeaderComponent,
     ProfileCardComponent,
     ProfileDataComponent,
-    MyPostsComponent
+    MyPostsComponent,
+    LikedPostsComponent
   ],
   imports: [
     BrowserModule,
