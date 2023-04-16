@@ -1,0 +1,42 @@
+<div class="my-posts-container">
+    <div class="my-posts-header">
+        <div class="post-filters">
+            <button class=" filter-button selected-filter">NEWEST</button>
+            <button class="filter-button ">POPULAR</button>
+
+        </div>
+        <span>200</span>
+        <fa-icon class="add-post-icon" [icon]="faPlus"></fa-icon>
+    </div>
+    <div class="posts">
+        <div class="post">
+            <div class="post-info">
+                <div class="post-timestamp">
+                    10-12-2023
+                </div>
+                <div class="post-title">HOW THE WEB WORKS</div>
+            </div>
+            <a href="#" class="post-category">HEALTH AND FITNESS</a>
+            <div class="post-stats">
+                <a href="#" class="post-likes">
+                    <span>123</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
+                </a>
+                <a href="#" class="post-comments">
+                    <span>300</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
+                </a>
+            </div>
+            <div class="post-actions">
+                <button class="view-post">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+                <button class="edit-post">
+                    <fa-icon [icon]="faPen"></fa-icon>
+                </button>
+                <button class="delete-post">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
