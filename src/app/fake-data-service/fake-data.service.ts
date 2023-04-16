@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user';
-import { Post } from './post';
-import { Picture } from './picture';
-import { CommentInteraction } from './comment';
-import { Follow } from './follow';
+import { User } from '../data-types/user';
+import { Post } from '../data-types/post';
+import { Picture } from '../data-types/picture';
+import { CommentInteraction } from '../data-types/comment';
+import { Follow } from '../data-types/follow';
 
 @Injectable({
   providedIn: 'root'

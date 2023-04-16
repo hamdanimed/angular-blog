@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FakeDataService } from './fake-data.service';
-import { User } from './user';
+import { FakeDataService } from './fake-data-service/fake-data.service';
+import { User } from './data-types/user';
 
 @Component({
   selector: 'app-root',
