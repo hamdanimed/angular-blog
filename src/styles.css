@@ -41,14 +41,9 @@ body {
 
   max-width: 1440px;
   margin:0 auto;
-<<<<<<< HEAD
   background-color: var(--bg-grey);
 
   font-family: 'Inter';
-=======
-  background-color: #E5E5E5;
-    font-family: 'Inter';
->>>>>>> homepage
 }
 
 
