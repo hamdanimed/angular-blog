@@ -1,0 +1,133 @@
+
+/* .container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+} */
+.bar{
+  margin-top: 3.4375rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+
+}
+.col-9 {
+/*    float: left;
+ *//*   width: 65%;
+ */     flex: 0 0 100%;
+ max-width: 85%;
+ padding-right: .9375rem;
+ padding-left: .625rem;
+}
+.col-3 {
+/*      float: right;
+ */     max-width: 10%;
+ padding-right: .9375rem;
+ padding-left: 3.125rem;
+ display: flex;
+
+}
+.icon{
+  text-align: center;
+}
+
+
+.tag{
+  text-align: center;
+  margin-bottom: .625rem;
+  padding: .5rem .75rem;
+  background: #FFFFFF;
+  border: .125rem solid var(--primary-grey);
+  border-radius: .625rem;
+  width: 10.0625rem;
+   font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: .875rem;
+  line-height: 1.3125rem;
+  /* identical to box height, or 150% */
+  color: #858585;
+}
+.sort_elem{
+  margin-right: .9375rem;
+  padding: .125rem .25rem;
+}
+
+
+.plus{
+
+  width: 1.4375rem;
+  height: 1.3125rem;
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.25rem;
+  margin-right: 4.375rem;
+  /* identical to box height, or 81% */
+
+
+  color: var(--primary-grey);
+}
+
+/* For responsive design, add the following media queries */
+
+
+
+@media (max-width: 64rem) {
+  .col-md-3{
+    width: 3%;
+  }
+  .col-md-9{
+    width: 60%;
+  }
+}
+
+@media (max-width: 48rem) {
+
+  .col-md-9 {
+    width: 75%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .col-md-3 {
+    width: 10%;
+    text-align: right;
+
+  }
+  .tag{
+    width: 5.6875rem;
+
+  }
+  .plus{
+
+    margin-right: 1.25rem !important;
+  }
+
+}
+
+@media (max-width: 36rem) {
+  .col-sm-9 {
+    max-width: 82%;
+    flex-wrap: nowrap;
+  }
+  .col-sm-3 {
+    width: 15%;
+  }
+  .tag{
+    font-size: .625rem;
+    width: 4.6875rem;
+  }
+  @media (max-width: 25rem){
+    .col-3{
+      padding-left: 2.8125rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    }
+
+  }
+}

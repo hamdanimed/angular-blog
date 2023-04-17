@@ -12,6 +12,12 @@ import { ProfileDataComponent } from './profile-data/profile-data.component';
 import { MyPostsComponent } from './profile-data-sections/my-posts/my-posts.component';
 import { LikedPostsComponent } from './profile-data-sections/liked-posts/liked-posts.component';
 import { FollowingComponent } from './profile-data-sections/following/following.component';
+import { TagsComponent } from './tags/tags.component';
+import { PostComponent } from './post/post.component';
+import { PostInfoComponent } from './post-info/post-info.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +27,10 @@ import { FollowingComponent } from './profile-data-sections/following/following.
     ProfileDataComponent,
     MyPostsComponent,
     LikedPostsComponent,
-    FollowingComponent
+    FollowingComponent,
+    PostComponent,
+    TagsComponent,
+    PostInfoComponent,
   ],
   imports: [
     BrowserModule,

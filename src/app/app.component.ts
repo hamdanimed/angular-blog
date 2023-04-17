@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FakeDataService } from './services/fake-data-service/fake-data.service';
 import { User } from './data-types/user';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,8 @@ import { User } from './data-types/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  faCoffee = faCoffee;
+  
   title = 'angular-blog';
   users : User[] | undefined;
 
@@ -22,4 +26,5 @@ export class AppComponent {
     this.fakeDataService.getFollowing(13).subscribe(following => {console.log(following.length);console.log(following)})
     this.fakeDataService.isFollowing(12,14).subscribe(follows => (console.log(follows)));
   }
+
 }
