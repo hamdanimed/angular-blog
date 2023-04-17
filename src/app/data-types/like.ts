@@ -1,5 +1,5 @@
 export interface Like{
-    id:number,
+    id:any,
     postId:number,
     date:number
 }

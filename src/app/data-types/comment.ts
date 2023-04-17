@@ -1,5 +1,5 @@
 export interface CommentInteraction{
-    id:number,
+    id:any,
     postId:number,
     date:number,
     content:string
