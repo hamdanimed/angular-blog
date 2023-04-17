@@ -1,0 +1,166 @@
+/* the post section------------------------
+----------------------------------------
+------------------------------------------ */
+
+.card-post {
+  max-width: 55.125rem;
+  height: auto;
+  background: #FFFFFF;
+  box-shadow: 0rem 2.611 2.089rem rgba(0, 0, 0, 0.0503198),
+ 0rem 1.396rem 1.117rem rgba(0, 0, 0, 0.0417275),
+  0rem 0.783rem 0.626rem rgba(0, 0, 0, 0.035),
+   0rem 0.416rem 0.333rem rgba(0, 0, 0, 0.0282725),
+    0rem 0.173rem 0.138rem rgba(0, 0, 0, 0.0196802);
+  border-radius: .625rem;
+/*   margin: 20px auto;*/
+  overflow: hidden;
+   margin-top: 2.125rem;
+}
+
+.card-post__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:1.25rem 2.1875rem;
+  background-color: #FFFFFF;
+}
+
+.card-post__header-left {
+  display: flex;
+  align-items: center;
+}
+
+.card-post__header-left .card-post__profile-pic {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+}
+
+.card-post__header-left .card-post__profile-info {
+  display: flex;
+  flex-direction: column;
+}
+ .card-post__username h4{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 1.0625rem;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+.card-post__username span{
+  font-family: 'Inter';
+font-style: italic;
+font-weight: 700;
+font-size: 0.625rem;
+line-height: 1.3125rem;
+/* identical to box height, or 210% */
+margin-left: 0.625rem;
+
+color: var(--primary-grey);
+}
+.card-post__date{
+
+font-family: 'Inter';
+font-style: italic;
+font-weight: 500;
+font-size: 0.75rem;
+line-height: 0.9375rem;
+/* identical to box height */
+
+
+color: #000000;
+}
+.card-post__header-right .card-post__label {
+  background-color: var(--green);
+  color: white;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.3125rem;
+  align-self: flex-start;
+ font-weight: 700;
+ font-size: 0.75rem;
+}
+
+.card-post__body {
+  padding: 0.3125rem 1.25rem ;
+}
+
+.card-post__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  font-style: normal;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.375rem;
+}
+
+.card-post__description {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: .9375rem;
+}
+
+.card-post__image {
+  /* width: 100%; */
+  display: flex;
+  padding: 2.1875rem;
+  /* flex-direction: column;
+  background-image: url('https://i.pinimg.com/564x/7c/d9/42/7cd9425c3c992be59f31dc899c448bf1.jpg');
+  width: 100%;
+  height: ;
+  background-repeat:no-repeat ;
+  background-size: cover; */
+  margin-bottom: 1.25rem;
+}
+
+.card-post__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding-bottom: .625rem
+  ;
+}
+.card-post__tag-btn{
+  margin: 0 .9375rem;
+  background: #FFFFFF;
+border: 0.125rem solid var(--primary-grey);
+border-radius: .625rem;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: .9375rem;
+line-height: 1.125rem;
+color: #858585;
+}
+
+@media(min-width:990px)and (max-width:1190px){
+   .card-post{
+    max-width: 74%;
+
+  }
+
+}
+@media(max-width:29.3125rem) {
+  .card-post__header{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-post__header-right{
+    margin-top: 0.5rem;
+    align-items: center;
+
+  }
+
+
+}
