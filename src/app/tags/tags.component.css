@@ -1,26 +1,17 @@
 
-.col-md-3 {
-  float: right;
-  /* flex: 0 0 25%; */
-  max-width: 25%;
-}
 
-.col-sm-3 {
-  float: right;
-  /* flex: 0 0 25%; */
-  max-width: 25%;
-}
 /* card */
-.card {
-  max-width: 50rem;
-  margin:auto;
+.category {
+  /* max-width: 50rem; */
+  margin: -0.9375rem .625rem;
   background-color: #fff;
   border-radius: .625rem;
   text-align: center;
   padding: 1.25rem;
-  height: 40.625rem;
-  margin-top: 3.75rem;
-
+  height: 700px;
+  margin-top: 7.03rem;
+/*   width: 254px;
+ */
   box-shadow: 0rem 2.6111rem 2.0889rem rgba(0, 0, 0, 0.0503198),
    0rem 1.396rem 1.1168rem rgba(0, 0, 0, 0.0417275),
     0rem .7826rem .6261rem rgba(0, 0, 0, 0.035),
@@ -29,8 +20,8 @@
 
 
 }
-.card_body {
-  padding: 1.25rem;
+.category_body {
+  padding: 1.2rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -46,7 +37,7 @@
   line-height: .125rem;
   /* identical to box height, or 150% */
   padding: .8rem .5rem;
-  margin-bottom: .625rem;
+  margin-bottom: 1rem;
 
   color: #858585;
 
@@ -55,38 +46,22 @@
 
 /* For responsive design, add the following media queries */
 
-@media(min-width:768px)and (max-width:1190px){
-   .card{
-    max-width: 48rem;
-  }
- }
-@media (max-width: 992px) {
 
-  .col-md-3 {
-    max-width: 33.33%;
+@media (min-width: 769px) {
+  .category{
+    width: 15rem;
   }
-  .col-sm-3,
-  .col-3 {
-    max-width: 50%;
-  }
-  .card{
-    margin: 58px 10px;
-  }
+
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
 
-  .col-md-3,
-  .col-sm-3,
-  .col-3 {
-    float: none;
-    max-width: 100%;
-  }
-  .card {
+
+  .category {
     max-width: 100%;
    max-height:9.375rem ;
   }
-  .card_body{
+  .category_body{
     padding: .625rem 0 0 0;
     display: flex;
     justify-content: center;
@@ -98,17 +73,26 @@
   }
 }
 
-@media (max-width: 36rem) {
+@media (max-width: 576px) {
 
-  .card {
+  .category {
     max-width: 100%;
    max-height:12.5rem ;
   }
 }
 
-@media (max-width: 25.625rem) {
-  .card {
+@media (max-width: 390px) {
+  .category {
     max-width: 100%;
    max-height:15rem ;
   }
+
 }
+@media (max-width: 328px) {
+  .category {
+    max-width: 100%;
+   max-height:16.5rem ;
+  }
+
+}
+
