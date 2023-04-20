@@ -15,6 +15,7 @@ import { FollowingComponent } from './profile-data-sections/following/following.
 import { TagsComponent } from './tags/tags.component';
 import { PostComponent } from './post/post.component';
 import { PostInfoComponent } from './post-info/post-info.component';
+import { PostCommentComponent } from './post-comment/post-comment.component';
 
 
 
@@ -31,6 +32,7 @@ import { PostInfoComponent } from './post-info/post-info.component';
     PostComponent,
     TagsComponent,
     PostInfoComponent,
+    PostCommentComponent,
   ],
   imports: [
     BrowserModule,

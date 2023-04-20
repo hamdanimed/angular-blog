@@ -14,8 +14,21 @@
     flex-direction: row-reverse;
     padding: 0 1.25rem;
   }
-  .flexbox-container.sort-post{
-    
+
+}
+.post-comment{
+/*   width: 80%;
+ */  display: flex;
+  justify-content: center;
+
+}
+.comment{
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .comment{
+    width: 100%;
   }
 }
 

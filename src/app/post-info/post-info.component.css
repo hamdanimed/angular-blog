@@ -145,10 +145,15 @@ line-height: 1.125rem;
 color: #858585;
 cursor: pointer;
 transition: .5s all ease;
+
+}
+.card-post__tag-btn.icon-size{
+
 }
 .like:hover,.like:focus{
   color: #00aaff;
   border-color:#00aaff ;
+  
 }
 
 .comment:hover,.comment:focus{
