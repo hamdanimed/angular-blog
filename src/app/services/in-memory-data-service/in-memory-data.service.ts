@@ -16,41 +16,53 @@ export class InMemoryDataService implements InMemoryDataService{
   createDb(){
     faker.seed(124);
     const pictures : Picture[]=[
-      {id:1,url:faker.image.avatar(),alt:""}
+      {id:1,url:faker.image.avatar(),alt:""},
+      {id:2,url:faker.image.avatar(),alt:""},
+      {id:3,url:faker.image.avatar(),alt:""},
+      {id:4,url:faker.image.avatar(),alt:""},
+      {id:5,url:faker.image.avatar(),alt:""},
     ];
     const users : User[] = [
       {id:1,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1999-12-06",bio:faker.lorem.paragraph()},
-      {id:2,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1998-12-06",bio:faker.lorem.paragraph()},
-      {id:3,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2000-12-06",bio:faker.lorem.paragraph()},
-      {id:4,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1995-12-06",bio:faker.lorem.paragraph()},
-      {id:5,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2001-04-06",bio:faker.lorem.paragraph()}
+      {id:2,avatarId:2,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1998-12-06",bio:faker.lorem.paragraph()},
+      {id:3,avatarId:3,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2000-12-06",bio:faker.lorem.paragraph()},
+      {id:4,avatarId:4,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1995-12-06",bio:faker.lorem.paragraph()},
+      {id:5,avatarId:5,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2001-04-06",bio:faker.lorem.paragraph()}
     ];
     const followers: Follow[]=[
-      {idFollower:12,idFollowed:13},
-      {idFollower:12,idFollowed:13},
-      {idFollower:12,idFollowed:14},
+      {id:1,idFollower:1,idFollowed:2},
+      {id:2,idFollower:1,idFollowed:5},
+      {id:3,idFollower:2,idFollowed:1},
+      {id:4,idFollower:2,idFollowed:3},
+      {id:5,idFollower:2,idFollowed:4},
+      {id:6,idFollower:3,idFollowed:4},
+      {id:7,idFollower:3,idFollowed:1},
+      {id:8,idFollower:5,idFollowed:1},
+      {id:9,idFollower:5,idFollowed:4},
+      {id:10,idFollower:5,idFollowed:2},
     ];
     const posts : Post[] = [
-      {
-        id:12,
-        userId:12,
-        date:faker.datatype.number({min:1681342105}),
-        title:faker.lorem.words(),
-        content:faker.lorem.paragraph(),
-        picturesId:[10],
-      }
+      {id:1,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[1],categorieId:1},
+      {id:2,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[2],categorieId:1},
+      {id:3,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[5],categorieId:1},
+      {id:4,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[4],categorieId:1},
+      {id:5,userId:4,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[3],categorieId:1},
+      {id:6,userId:5,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
+      {id:7,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
+      {id:8,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
     ];
     const comments : CommentInteraction[] =[
-      {id:12,postId:12,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
-      {id:12,postId:12,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
-      {id:13,postId:11,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:1,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:2,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:3,postId:2,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
     ];
     const likes : Like[] =[
-      {
-        id:12,
-        postId:12,
-        date:faker.datatype.number({min:1681342105})
-      }
+      {id:1,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:2,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:3,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:4,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:5,postId:2,date:faker.datatype.number({min:1681342105})},
+      {id:6,postId:3,date:faker.datatype.number({min:1681342105})},
     ];
     const categories : Category[] =[
       {id:1,name:"sports"},
@@ -65,7 +77,7 @@ export class InMemoryDataService implements InMemoryDataService{
     return {pictures,users,followers,posts,comments,likes,categories};
   }
 
-  genId<T extends Picture | User | Post | CommentInteraction | Like | Category>(myTable: T[]): number {
-    return myTable.length > 0 ? Math.max(...myTable.map(t => t.id)) + 1 : 11;
+  genId<T extends Picture | User | Post | CommentInteraction | Like >(myTable: T[]): number {
+    return myTable.length > 0 ? Math.max(...myTable.map(t => t.id)) + 1 : 1;
   }
 }
