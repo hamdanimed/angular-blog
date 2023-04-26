@@ -17,7 +17,25 @@ import { PostComponent } from './post/post.component';
 import { PostInfoComponent } from './post-info/post-info.component';
 import { PostCommentComponent } from './post-comment/post-comment.component';
 
+import { APP_INITIALIZER } from '@angular/core';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:8081/',
+        realm: 'angularHerosApp',
+        clientId: 'blogApp'
+      },
+      initOptions: {
+        // onLoad: 'login-required',
+        onLoad: 'login-required',
+        // checkLoginIframe: false,
+        // silentCheckSsoRedirectUri:window.location.origin + '/assets/verificar-sso.html'
+      }
+    });
+}
 
 
 @NgModule({
@@ -40,9 +58,15 @@ import { PostCommentComponent } from './post-comment/post-comment.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-   )
+   ),
+   KeycloakAngularModule,
   ],
-  providers: [],
+  providers: [{
+    provide:APP_INITIALIZER,
+    useFactory:initializeKeycloak,
+    multi:true,
+    deps:[KeycloakService]
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

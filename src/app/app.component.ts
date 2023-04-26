@@ -4,6 +4,9 @@ import { User } from './data-types/user';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Follow } from './data-types/follow';
 
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile, KeycloakRoles } from 'keycloak-js';
+
 
 @Component({
   selector: 'app-root',
@@ -11,14 +14,36 @@ import { Follow } from './data-types/follow';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  
   faCoffee = faCoffee;
   
   title = 'angular-blog';
   users : User[] | undefined;
+  
+  public isLogged = false;
+	public userProfil: KeycloakProfile | null = null;
 
-  constructor(private fakeDataService: FakeDataService){}
+  constructor(private fakeDataService: FakeDataService,private readonly keycloak: KeycloakService){}
 
-  ngOnInit(){
+  public initiateSession() {
+		this.keycloak.login();
+	}
+
+	public endSession() {
+		this.keycloak.logout();
+	}
+
+  async ngOnInit(){
+    this.isLogged = await this.keycloak.isLoggedIn();
+
+    console.log(this.isLogged)
+		type rolesUsers = Array<{id: number, text: string}>;
+
+		if (this.isLogged) {
+			this.userProfil = await this.keycloak.loadUserProfile();
+      console.log(this.userProfil)
+		}
     // this.fakeDataService.getPictures().subscribe(pictures => (console.log(pictures)));
     // this.fakeDataService.getUsers().subscribe(users => (console.log(users)));
     // this.fakeDataService.getPosts().subscribe(posts => (console.log(posts)));
