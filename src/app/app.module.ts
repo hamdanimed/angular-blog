@@ -19,6 +19,7 @@ import { PostCommentComponent } from './post-comment/post-comment.component';
 
 import { APP_INITIALIZER } from '@angular/core';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { AppRountingModule } from './app-rounting.module';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -29,10 +30,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'blogApp'
       },
       initOptions: {
-        // onLoad: 'login-required',
         onLoad: 'login-required',
-        // checkLoginIframe: false,
-        // silentCheckSsoRedirectUri:window.location.origin + '/assets/verificar-sso.html'
       }
     });
 }
@@ -60,6 +58,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       InMemoryDataService, { dataEncapsulation: false }
    ),
    KeycloakAngularModule,
+   AppRountingModule,
   ],
   providers: [{
     provide:APP_INITIALIZER,
