@@ -1,3 +1,4 @@
+
 .card-post {
   /*   max-width: 55.125rem;
    */  height: auto;
@@ -200,19 +201,18 @@ font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 18px;
-padding: 10px;
-/* or 100% */
-
-
 color: #000000;
-
-
 }
 .lx{
   width: 100%;
   background: #FFFFFF;
   border: 2px solid #C7C7C7;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+.lx span{
+  font-size: 12px;
+  font-weight: 500;
 }
   .input-comment{
 display: flex;
@@ -229,7 +229,6 @@ padding: 0rem 2rem;
  .flex-textarea {
   resize: none;
     height: 50px;
-    border: none;
     padding: 10px;
     margin: 0;
     font-size: 16px;
@@ -237,7 +236,10 @@ padding: 0rem 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: #FFFFFF;
   border: 2px solid #C7C7C7;
-  border-radius: 5px;
+  border-radius: 10px;
+  }
+  .textarea-icon{
+    
   }
 
 
