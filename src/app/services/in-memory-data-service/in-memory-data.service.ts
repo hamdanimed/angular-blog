@@ -21,13 +21,18 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:3,url:faker.image.avatar(),alt:""},
       {id:4,url:faker.image.avatar(),alt:""},
       {id:5,url:faker.image.avatar(),alt:""},
+      {id:6,url:faker.image.cats(),alt:""},
+      {id:7,url:faker.image.cats(),alt:""},
+      {id:8,url:faker.image.cats(),alt:""},
+      {id:9,url:faker.image.cats(),alt:""},
+      {id:10,url:faker.image.cats(),alt:""},
     ];
     const users : User[] = [
-      {id:1,avatarId:1,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1999-12-06",bio:faker.lorem.paragraph()},
-      {id:2,avatarId:2,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1998-12-06",bio:faker.lorem.paragraph()},
-      {id:3,avatarId:3,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2000-12-06",bio:faker.lorem.paragraph()},
-      {id:4,avatarId:4,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"1995-12-06",bio:faker.lorem.paragraph()},
-      {id:5,avatarId:5,username:faker.name.firstName(),email:faker.internet.email(),password:faker.internet.password(),birthday:"2001-04-06",bio:faker.lorem.paragraph()}
+      {id:1,avatarId:1,username:"Hamdanimed",email:faker.internet.email(),password:faker.internet.password(),birthday:"1999-12-06",bio:faker.lorem.paragraph()},
+      {id:2,avatarId:2,username:"Ahmed10",email:faker.internet.email(),password:faker.internet.password(),birthday:"1998-12-06",bio:faker.lorem.paragraph()},
+      {id:3,avatarId:3,username:"TopReviewer",email:faker.internet.email(),password:faker.internet.password(),birthday:"2000-12-06",bio:faker.lorem.paragraph()},
+      {id:4,avatarId:4,username:"Hamza360",email:faker.internet.email(),password:faker.internet.password(),birthday:"1995-12-06",bio:faker.lorem.paragraph()},
+      {id:5,avatarId:5,username:"BenAarrouch",email:faker.internet.email(),password:faker.internet.password(),birthday:"2001-04-06",bio:faker.lorem.paragraph()}
     ];
     const followers: Follow[]=[
       {id:1,idFollower:1,idFollowed:2},
@@ -42,14 +47,14 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:10,idFollower:5,idFollowed:2},
     ];
     const posts : Post[] = [
-      {id:1,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[1],categorieId:1},
-      {id:2,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[2],categorieId:1},
-      {id:3,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[5],categorieId:1},
-      {id:4,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[4],categorieId:1},
-      {id:5,userId:4,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[3],categorieId:1},
-      {id:6,userId:5,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
+      {id:1,userId:1,date:1682715467,title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[6],categorieId:1},
+      {id:2,userId:1,date:1619647067,title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[7],categorieId:4},
+      {id:3,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[8],categorieId:8},
+      {id:4,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[9],categorieId:2},
+      {id:5,userId:4,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[10],categorieId:6},
+      {id:6,userId:5,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:7},
       {id:7,userId:1,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
-      {id:8,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:1},
+      {id:8,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:8},
     ];
     const comments : CommentInteraction[] =[
       {id:1,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},

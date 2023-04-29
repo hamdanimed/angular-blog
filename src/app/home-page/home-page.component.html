@@ -1,10 +1,10 @@
-<div class="flexbox-container">
-    <app-tags class="category"></app-tags>
-    <div class="sort-post">
-      <app-home-filters></app-home-filters>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-    </div>
+<div class="container">
+  <app-home-filters style="grid-area: filter;"></app-home-filters>
+  <!-- <div></div> -->
+  <div style="grid-area: main;" class="feed">
+    <app-post-card *ngFor="let post of posts" [post]="post"></app-post-card>
+  </div>
+  <app-tags style="grid-area: category;" class="category"></app-tags>
+    <!-- <div class="sort-post"> -->
+    <!-- </div> -->
 </div>

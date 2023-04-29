@@ -54,12 +54,12 @@ export class AppComponent {
     
     // this.fakeDataService.isFollowing(2,3).subscribe(follows => {console.log("isFollowing 2 3: ",follows)});
     // let followId;
-    this.fakeDataService.getFollowing(1).subscribe(followers => {console.log(`${1} followersList:`,followers)});
-    let follow:Follow={id:null,idFollower:1,idFollowed:3};
-    this.fakeDataService.addFollow(follow).subscribe(follow=>{
-      console.log("add follow",follow);
-      this.fakeDataService.getFollowing(1).subscribe(followers => {console.log(`${1} followersList:`,followers)});
-    });
+    // this.fakeDataService.getFollowing(1).subscribe(followers => {console.log(`${1} followersList:`,followers)});
+    // let follow:Follow={id:null,idFollower:1,idFollowed:3};
+    // this.fakeDataService.addFollow(follow).subscribe(follow=>{
+    //   console.log("add follow",follow);
+    //   this.fakeDataService.getFollowing(1).subscribe(followers => {console.log(`${1} followersList:`,followers)});
+    // });
 
 
     //unfollowing Situation]

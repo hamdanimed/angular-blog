@@ -3,28 +3,25 @@
 /* card */
 .category {
   /* max-width: 50rem; */
-  margin: -0.9375rem .625rem;
+  /* margin: -0.9375rem .625rem; */
   background-color: #fff;
   border-radius: .625rem;
   text-align: center;
-  padding: 1.25rem;
-  height: 700px;
-  margin-top: 7.03rem;
+  padding: 1.5rem min(2.3rem, calc(1rem + 1vw));
+  /* height: 700px; */
+  /* margin-top: 7.03rem; */
 /*   width: 254px;
  */
-  box-shadow: 0rem 2.6111rem 2.0889rem rgba(0, 0, 0, 0.0503198),
-   0rem 1.396rem 1.1168rem rgba(0, 0, 0, 0.0417275),
-    0rem .7826rem .6261rem rgba(0, 0, 0, 0.035),
-    0rem .4156rem .3325rem rgba(0, 0, 0, 0.0282725),
-    0rem .173rem .1384rem rgba(0, 0, 0, 0.0196802);
+  box-shadow: 0rem 2.6111rem 2.0889rem rgba(0, 0, 0, 0.0503198),0rem 1.396rem 1.1168rem rgba(0, 0, 0, 0.0417275),0rem .7826rem .6261rem rgba(0, 0, 0, 0.035),0rem .4156rem .3325rem rgba(0, 0, 0, 0.0282725),0rem .173rem .1384rem rgba(0, 0, 0, 0.0196802);
 
 
 }
 .category_body {
-  padding: 1.2rem;
+  padding: 1.2rem 0 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 0.7rem;
 }
 .tag{
   background: #FFFFFF;
@@ -37,7 +34,7 @@
   line-height: .125rem;
   /* identical to box height, or 150% */
   padding: .8rem .5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 
   color: #858585;
 
@@ -45,9 +42,15 @@
 
 
 /* For responsive design, add the following media queries */
+@media(max-width:768px){
+  .category_body{
+    flex-direction: row;
+    flex-wrap: wrap;
 
+  }
+}
 
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
   .category{
     width: 15rem;
   }
@@ -93,6 +96,6 @@
     max-width: 100%;
    max-height:16.5rem ;
   }
-}
+} */
   
 

@@ -6,25 +6,23 @@
   padding-left: 15px;
 } */
 .bar{
-  margin-top: 3.4375rem;
+  /* margin-top: 3.4375rem; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-
+  /* padding:2rem 0; */
 
 }
 .sort-filter {
-/*    float: left;
- *//*   width: 65%;
- */     flex: 0 0 75%;
-/*  max-width: 85%;
- */ padding-right: .9375rem;
- padding-left: .9375rem;
+  flex: 0 0 75%;
+
+  /* padding-right: .9375rem;
+  padding-left: .9375rem; */
 }
 .plus-position {
 /*      float: right;
  */    width: 25%;
- padding-right: .9375rem;
+ /* padding-right: .9375rem; */
 
  display: flex;
  justify-content: flex-end;

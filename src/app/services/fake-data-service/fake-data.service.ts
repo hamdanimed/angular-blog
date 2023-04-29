@@ -7,6 +7,8 @@ import { Picture } from '../../data-types/picture';
 import { CommentInteraction } from '../../data-types/comment';
 import { Follow } from '../../data-types/follow';
 import {tap} from 'rxjs/operators';
+import { Category } from 'src/app/data-types/category';
+import { Like } from 'src/app/data-types/like';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,11 @@ export class FakeDataService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+  getCategory(id:number): Observable<Category>{
+    const url=`${this.categoriesUrl}/${id}`
+    return this.http.get<Category>(url);
+  }
 
   // getPictures(): Observable<Picture[]>{
   //   return this.http.get<Picture[]>(this.picturesUrl);
@@ -65,6 +72,14 @@ export class FakeDataService {
   }
   addComment(comment:CommentInteraction): Observable<CommentInteraction>{
     return this.http.post<CommentInteraction>(this.commentsUrl,comment,this.httpOptions);
+  }
+
+  getLikes(postId:number): Observable<Like[]>{
+    const url=`${this.likesUrl}?postId=${postId}`;
+    return this.http.get<Like[]>(url);
+  }
+  addLike(like:Like): Observable<Like>{
+    return this.http.post<Like>(this.likesUrl,like,this.httpOptions);
   }
 
   getFollowers(idFollowed:number): Observable<Follow[]> {
