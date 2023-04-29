@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FakeDataService } from '../services/fake-data-service/fake-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../data-types/post';
@@ -20,6 +21,7 @@ export class PostCommentComponent {
   falike = faThumbsUp;
   facomment = faCommentAlt;
   faback = faArrowLeft;
+  fasend = faPaperPlane;
 
   post!:Post;
   user!:User;
@@ -90,4 +92,5 @@ export class PostCommentComponent {
   goBack(){
     this.location.back();
   }
+  
 }
