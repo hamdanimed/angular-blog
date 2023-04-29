@@ -37,7 +37,7 @@ export class AppComponent {
   async ngOnInit(){
     this.isLogged = await this.keycloak.isLoggedIn();
 
-    console.log(this.isLogged)
+    console.log("are we logged in : ",this.isLogged)
 		type rolesUsers = Array<{id: number, text: string}>;
 
 		if (this.isLogged) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, Subscriber } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../data-types/user';
 import { Post } from '../../data-types/post';
@@ -27,6 +27,9 @@ export class FakeDataService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+  followers!:Follow[];
+  following:Subject<Follow[]> = new Subject<Follow[]>();
 
   getCategory(id:number): Observable<Category>{
     const url=`${this.categoriesUrl}/${id}`
@@ -58,6 +61,10 @@ export class FakeDataService {
   getPosts(): Observable<Post[]>{
     return this.http.get<Post[]>(this.postsUrl);
   }
+  getUserPosts(userId:number):Observable<Post[]>{
+    const url=`${this.postsUrl}?userId=${userId}`;
+    return this.http.get<Post[]>(url);
+  }
   getPost(id:number): Observable<Post>{
     const url=`${this.postsUrl}/${id}`;
     return this.http.get<Post>(url);
@@ -76,6 +83,10 @@ export class FakeDataService {
 
   getLikes(postId:number): Observable<Like[]>{
     const url=`${this.likesUrl}?postId=${postId}`;
+    return this.http.get<Like[]>(url);
+  }
+  getUserLikes(userId:number): Observable<Like[]>{
+    const url=`${this.likesUrl}?userId=${userId}`;
     return this.http.get<Like[]>(url);
   }
   addLike(like:Like): Observable<Like>{
@@ -100,10 +111,24 @@ export class FakeDataService {
     //   tap((newFollow: Follow) => console.log(`added new follow w/ id=${newFollow.id}`))
     // );
   }
+
   unfollow(id:number): Observable<Follow>{
     
     // console.log("follow id",followId);
     const url=`${this.followersUrl}/${id}`;
     return this.http.delete<Follow>(url,this.httpOptions);
+  }
+  getLikedUsersPosts(userId:number): Subject<Like[]>{
+    let likedPosts:Subject<Like[]>=new Subject<Like[]>();
+    this.getUserLikes(userId).subscribe((likes)=>{
+        // likes.forEach((like)=>{
+        //   this.getPost(like.postId).subscribe((post)=>{
+        //     likedPosts.push(post)
+        //   })
+        // })
+      likedPosts.next(likes)
+    })
+    // new Subject<Post[]>
+    return likedPosts;
   }
 }

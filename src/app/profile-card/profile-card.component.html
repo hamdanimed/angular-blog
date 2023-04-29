@@ -1,25 +1,26 @@
 <!-- <div style="margin: 0 auto;padding:0.5rem 1rem;background-color: white;width: fit-content;border-radius: 10px;">
     <fa-icon class="header-icon" (click)="goBack()" [icon]="faArrowLeft"></fa-icon> 
 </div> -->
-<div class="profile-card">
+<div *ngIf="user" class="profile-card">
     <div class="img-section">
-        <img src="https://picsum.photos/500" alt="" class="profile-photo">
+        <img *ngIf="avatar" src="{{avatar.url}}" alt="{{avatar.alt}}" class="profile-photo">
     </div>
     <div class="profile-info">
-        <h3>HAMDANIMED <fa-icon [icon]="faEdit"></fa-icon></h3>
-        <p>
+        <h3>{{user.username | uppercase}} <fa-icon [icon]="faEdit"></fa-icon></h3>
+        <p>{{user.bio}}</p>
+        <!-- <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        </p> -->
         <div class="follow-div">
             <button class="follow-btn">FOLLOW</button>
         </div>
     </div>
-    <div class="profile-stats">
+    <div *ngIf="followers && following" class="profile-stats">
         <div class="stat-count separator">
-            <span>200K</span><br>FOLLOWERS
+            <span>{{followers.length}}</span><br>FOLLOWERS
         </div>
         <div class="stat-count">
-            <span>2K</span><br>FOLLOWING
+            <span>{{following.length}}</span><br>FOLLOWING
         </div>
     </div>
 </div>

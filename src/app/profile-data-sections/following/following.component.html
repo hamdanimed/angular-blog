@@ -1,42 +1,18 @@
 <div class="following-container">
     <div class="following-header">
-        <span>200</span>
+        <span *ngIf="this.following">{{this.following.length}}</span>
     </div>
-    <div class="profiles">
-        <div class="following-profile">
+    <div *ngIf="this.followingList" class="profiles">
+        
+        <div *ngFor="let user of followingList;let index=index;" class="following-profile">
+            <img *ngIf="followingListAvatars[index]" routerLink="/profile/{{user.id}}" class="profile-picture" src="{{followingListAvatars[index].url}}" alt="{{followingListAvatars[index].alt}}">
+            <span class="profile-name">{{user.username}}</span>
+            <button class="profile-follow">UNFOLLOW</button>
+        </div>
+        <!-- <div class="following-profile">
             <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
             <span class="profile-name">HAMDANIMED</span>
             <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
-        <div class="following-profile">
-            <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">
-            <span class="profile-name">HAMDANIMED</span>
-            <button class="profile-follow">UNFOLLOW</button>
-        </div>
+        </div> -->
     </div>
 </div>
