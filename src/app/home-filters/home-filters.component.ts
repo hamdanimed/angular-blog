@@ -4,11 +4,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-home-filters',
+  templateUrl: './home-filters.component.html',
+  styleUrls: ['./home-filters.component.css']
 })
-export class PostComponent {
+export class HomeFiltersComponent {
   faCard = faCaretDown;
   faPlus = faPlus;
 

@@ -1,7 +1,7 @@
 
 <header class="header-bar {{navOpen}}">
     <div>
-        <a href="/"><fa-icon class="home-icon header-icon" [icon]="faHome"></fa-icon></a></div>
+        <a routerLink="home"><fa-icon class="home-icon header-icon" [icon]="faHome"></fa-icon></a></div>
         <div class="search-div">
             <div class="search-bar">
                 <input type="text" placeholder="Search">
@@ -12,7 +12,7 @@
         
         <nav class="header-nav" id="header-nav">
 
-            <a class="nav-profile" href="#">
+            <a class="nav-profile" routerLink="profile/1">
                 <img src="https://picsum.photos/500" alt="profile icon">
                 <b>HAMDANIMED</b>
             </a>

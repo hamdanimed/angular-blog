@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostInfoComponent } from './post-info.component';
+import { HomeFiltersComponent } from './home-filters.component';
 
-describe('PostInfoComponent', () => {
-  let component: PostInfoComponent;
-  let fixture: ComponentFixture<PostInfoComponent>;
+describe('HomeFiltersComponent', () => {
+  let component: HomeFiltersComponent;
+  let fixture: ComponentFixture<HomeFiltersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostInfoComponent ]
+      declarations: [ HomeFiltersComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostInfoComponent);
+    fixture = TestBed.createComponent(HomeFiltersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

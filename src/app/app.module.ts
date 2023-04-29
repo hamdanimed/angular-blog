@@ -13,13 +13,15 @@ import { MyPostsComponent } from './profile-data-sections/my-posts/my-posts.comp
 import { LikedPostsComponent } from './profile-data-sections/liked-posts/liked-posts.component';
 import { FollowingComponent } from './profile-data-sections/following/following.component';
 import { TagsComponent } from './tags/tags.component';
-import { PostComponent } from './post/post.component';
-import { PostInfoComponent } from './post-info/post-info.component';
+import { HomeFiltersComponent } from './home-filters/home-filters.component';
+import { PostCardComponent } from './post-card/post-card.component';
 import { PostCommentComponent } from './post-comment/post-comment.component';
 
 import { APP_INITIALIZER } from '@angular/core';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRountingModule } from './app-rounting.module';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -45,10 +47,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MyPostsComponent,
     LikedPostsComponent,
     FollowingComponent,
-    PostComponent,
+    HomeFiltersComponent,
     TagsComponent,
-    PostInfoComponent,
+    PostCardComponent,
     PostCommentComponent,
+    ProfilePageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -60,12 +64,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
    KeycloakAngularModule,
    AppRountingModule,
   ],
-  providers: [{
-    provide:APP_INITIALIZER,
-    useFactory:initializeKeycloak,
-    multi:true,
-    deps:[KeycloakService]
-  }],
+  providers: [
+  //   {
+  //   provide:APP_INITIALIZER,
+  //   useFactory:initializeKeycloak,
+  //   multi:true,
+  //   deps:[KeycloakService]
+  // }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { faPlus,faThumbsUp,faCommentAlt,faEye,faPen,faTrash } from '@fortawesome/free-solid-svg-icons'
 

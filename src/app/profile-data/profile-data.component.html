@@ -1,25 +1,26 @@
 <div class="profile-data-container">
     <div class="section-selector">
-        <a href="#">
-            <div class="section selected-section">
+        <a routerLink="my-posts" >
+            <div class="section " routerLinkActive="selected-section">
                 MY POSTS
             </div>
         </a>
-        <a href="#">
-            <div class="section">
+        <a routerLink="liked-posts">
+            <div class="section" routerLinkActive="selected-section">
                 LIKED POSTS
             </div>
         </a>
-        <a href="#">
-            <div class="section">
+        <a routerLink="following">
+            <div class="section" routerLinkActive="selected-section">
                 FOLLOWING
             </div>
         </a>
     </div>
     <div class="section-content">
-        <app-my-posts *ngIf="selectedSection==='my-posts'"></app-my-posts>
+        <router-outlet ></router-outlet>
+        <!-- <app-my-posts *ngIf="selectedSection==='my-posts'"></app-my-posts>
         <app-liked-posts *ngIf="selectedSection==='liked-posts'"></app-liked-posts>
-        <app-following *ngIf="selectedSection==='following'"></app-following>
+        <app-following *ngIf="selectedSection==='following'"></app-following> -->
 
     </div>
 </div>

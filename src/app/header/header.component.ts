@@ -25,9 +25,9 @@ export class HeaderComponent {
     this.keycloak.logout(); 
   }
 
-async clientId(){
-    let profil= await this.keycloak.loadUserProfile();
-    return profil.id;
+  async clientId(){
+      let profil= await this.keycloak.loadUserProfile();
+      return profil.id;
   }
 
   async clientToken(){
@@ -39,6 +39,5 @@ async clientId(){
     console.log("toggleMenu");
     this.navOpen = (this.navOpen==="")?"open-nav":"";
   }
-
 
 }

@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-profile-card',
@@ -8,6 +9,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProfileCardComponent {
   faEdit=faEdit;
+  faArrowLeft= faArrowLeft;
 
   //This function is to be used later for dark mode / light mode
   // changeColor(){
@@ -19,4 +21,6 @@ export class ProfileCardComponent {
 
   // }
 
+  constructor(private location: Location){}
+  goBack(){this.location.back();}
 }

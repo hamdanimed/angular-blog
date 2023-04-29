@@ -3,11 +3,11 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-post-info',
-  templateUrl: './post-info.component.html',
-  styleUrls: ['./post-info.component.css']
+  selector: 'app-post-card',
+  templateUrl: './post-card.component.html',
+  styleUrls: ['./post-card.component.css']
 })
-export class PostInfoComponent {
+export class PostCardComponent {
     falike = faThumbsUp;
     facomment = faCommentAlt;
 }
