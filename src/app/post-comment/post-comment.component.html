@@ -55,13 +55,7 @@
       <div *ngFor="let comment of comments;let index=index;" class="label-comment">
         <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment">
         <div class="lx">
-<<<<<<< HEAD
           <p class="style-comment">{{comment.content}}</p>
-=======
-          <span>HAMDANIMED</span>
-          <p class="style-comment">yeah, that is an amazing post about UCL,Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam consequuntur odio quae labore, voluptatibus ad tempora inventore temporibus tempore nemo fugit, expedita natus recusandae, minus molestiae iste. Rem, earum nulla.
-          </p>
->>>>>>> main
         </div>
     </div>
     </div>
@@ -73,7 +67,8 @@
         <div class="post-form">
 
             <textarea class="flex-textarea" placeholder="Write a comment..." >
-              <fa-icon class="textarea-icon" [icon]="fasend"></fa-icon></textarea>
+            </textarea>
+            <!-- <fa-icon class="textarea-icon" [icon]="fasend"></fa-icon> -->
 
         </div>
       </div>
