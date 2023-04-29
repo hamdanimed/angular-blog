@@ -5,7 +5,9 @@
     <div *ngIf="this.followingList" class="profiles">
         
         <div *ngFor="let user of followingList;let index=index;" class="following-profile">
-            <img *ngIf="followingListAvatars[index]" routerLink="/profile/{{user.id}}" class="profile-picture" src="{{followingListAvatars[index].url}}" alt="{{followingListAvatars[index].alt}}">
+            <a href="/profile/{{user.id}}">
+                <img *ngIf="followingListAvatars[index]" class="profile-picture" src="{{followingListAvatars[index].url}}" alt="{{followingListAvatars[index].alt}}">
+            </a>
             <span class="profile-name">{{user.username}}</span>
             <button class="profile-follow">UNFOLLOW</button>
         </div>

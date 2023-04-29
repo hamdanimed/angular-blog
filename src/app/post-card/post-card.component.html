@@ -83,10 +83,12 @@
       <span class="card-post__label">{{category.name | uppercase}}</span>
     </div>
   </div>
-  <div routerLink="/post/{{post.id}}" class="card-post__body">
+  <div class="card-post__body">
     <h2 class="card-post__title">{{post.title | uppercase}}</h2>
-    <p class="card-post__description">{{post.content}}</p>    
-    <img *ngIf="picture" src="{{picture.url}}" alt="{{picture.alt}}" class="card-post__image">
+    <p class="card-post__description">{{post.content}}</p>  
+    <a routerLink="/post/{{post.id}}">
+      <img *ngIf="picture"  src="{{picture.url}}" alt="{{picture.alt}}" class="card-post__image">
+    </a>  
     
     <!-- <h2 class="card-post__title">2022–23 UEFA Champions League</h2> -->
     <!-- <p class="card-post__description">The 2022–23 UEFA Champions League is the 68th season of Europe's premier club football tournament organised by UEFA,
