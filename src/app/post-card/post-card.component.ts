@@ -30,24 +30,31 @@ export class PostCardComponent {
     
     constructor(private fakeDataService: FakeDataService){}
     ngOnInit(){
-      this.date=new Date(this.post?.date*1000);
+      this.date=new Date(this.post?.date*1000); //convert post date from timestamp to the object date to use the date pipe of angular
+      //get the object user of the author of the post
       this.fakeDataService.getUser(this.post.userId).subscribe((user)=>{
         this.user=user;
+        //after getting the user object
+        //get the picture object of the author's avatar
         this.fakeDataService.getPicture(this.user.avatarId).subscribe((avatar)=>{
           this.avatar=avatar;
         })
       })
+      //get the category
       this.fakeDataService.getCategory(this.post.categorieId).subscribe((category)=>{
         this.category=category;
       })
+      //if the post has a pictures , get the first picture of the array
       if(this.post.picturesId.length){
         this.fakeDataService.getPicture(this.post.picturesId[0]).subscribe((picture)=>{
           this.picture=picture;
         })
       }
+      //get the comments of the post
       this.fakeDataService.getComments(this.post.id).subscribe((comments)=>{
         this.commentsCounter=comments.length;
       })
+      //get the likes of the post
       this.fakeDataService.getLikes(this.post.id).subscribe((likes)=>{
         this.likesCounter=likes.length;
       })

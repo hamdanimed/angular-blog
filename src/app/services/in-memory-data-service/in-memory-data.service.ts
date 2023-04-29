@@ -57,17 +57,17 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:8,userId:2,date:faker.datatype.number({min:1681342105}),title:faker.lorem.words(),content:faker.lorem.paragraph(),picturesId:[],categorieId:8},
     ];
     const comments : CommentInteraction[] =[
-      {id:1,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
-      {id:2,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
-      {id:3,postId:2,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:1,userId:1,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:2,userId:5,postId:1,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
+      {id:3,userId:1,postId:2,date:faker.datatype.number({min:1681342105}),content:faker.lorem.paragraph()},
     ];
     const likes : Like[] =[
-      {id:1,postId:1,date:faker.datatype.number({min:1681342105})},
-      {id:2,postId:1,date:faker.datatype.number({min:1681342105})},
-      {id:3,postId:1,date:faker.datatype.number({min:1681342105})},
-      {id:4,postId:1,date:faker.datatype.number({min:1681342105})},
-      {id:5,postId:2,date:faker.datatype.number({min:1681342105})},
-      {id:6,postId:3,date:faker.datatype.number({min:1681342105})},
+      {id:1,userId:1,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:2,userId:2,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:3,userId:4,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:4,userId:5,postId:1,date:faker.datatype.number({min:1681342105})},
+      {id:5,userId:1,postId:2,date:faker.datatype.number({min:1681342105})},
+      {id:6,userId:1,postId:3,date:faker.datatype.number({min:1681342105})},
     ];
     const categories : Category[] =[
       {id:1,name:"sports"},
