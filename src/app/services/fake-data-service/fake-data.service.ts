@@ -61,6 +61,10 @@ export class FakeDataService {
   getPosts(): Observable<Post[]>{
     return this.http.get<Post[]>(this.postsUrl);
   }
+  getCategories(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.categoriesUrl);
+
+  }
   getUserPosts(userId:number):Observable<Post[]>{
     const url=`${this.postsUrl}?userId=${userId}`;
     return this.http.get<Post[]>(url);
