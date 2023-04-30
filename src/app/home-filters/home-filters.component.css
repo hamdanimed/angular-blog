@@ -36,12 +36,10 @@
 .tag{
   text-align: center;
   margin-bottom: .625rem;
-  padding: .5rem .75rem;
   background: #FFFFFF;
   border: .125rem solid var(--primary-grey);
   border-radius: .625rem;
-  width: 10.0625rem;
-   font-family: 'Inter';
+  padding: 0 1rem;
   font-style: normal;
   font-weight: 700;
   font-size: .875rem;
@@ -51,7 +49,10 @@
 }
 .sort_elem{
   margin-right: 0.8375rem;
-  padding: 0rem 0.25rem;
+}
+.selected-sort-elem{
+  border-color: black;
+  color: black;
 }
 
 

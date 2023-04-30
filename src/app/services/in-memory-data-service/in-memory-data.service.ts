@@ -68,6 +68,16 @@ export class InMemoryDataService implements InMemoryDataService{
       {id:4,userId:5,postId:1,date:faker.datatype.number({min:1681342105})},
       {id:5,userId:1,postId:2,date:faker.datatype.number({min:1681342105})},
       {id:6,userId:1,postId:3,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
+      {id:7,userId:1,postId:5,date:faker.datatype.number({min:1681342105})},
     ];
     const categories : Category[] =[
       {id:1,name:"sports"},

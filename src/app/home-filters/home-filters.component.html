@@ -1,15 +1,15 @@
 
   <div class="bar">
     <div class="sort-filter ">
-      <span class="tag sort_elem ">FOR YOU</span>
-      <span class="tag sort_elem">NEWEST</span>
-      <span class="tag sort_elem">POPULAR
-        <fa-icon [icon]="faCard"></fa-icon></span>
+      <button class="tag sort_elem " [ngClass]="{'selected-sort-elem': forYou}" (click)="toggleForYou(forYou)">FOR YOU</button>
+      <button class="tag sort_elem"  [ngClass]="{'selected-sort-elem': sort==='newest'}" (click)="selectSort('newest')">NEWEST</button>
+      <button class="tag sort_elem" [ngClass]="{'selected-sort-elem': sort==='popular'}" (click)="selectSort('popular')">POPULAR
+        <fa-icon [icon]="faCard"></fa-icon></button>
+      </div>
+      <div class="icon plus-position ">
+          <fa-icon class="plus" [icon]="faPlus"></fa-icon>
       </div>
 
-        <div class="icon plus-position ">
-            <fa-icon class="plus" [icon]="faPlus"></fa-icon>
-        </div>
 
     </div>
 

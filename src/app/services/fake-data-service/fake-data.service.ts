@@ -89,6 +89,9 @@ export class FakeDataService {
     const url=`${this.likesUrl}?postId=${postId}`;
     return this.http.get<Like[]>(url);
   }
+  getAllLikes():Observable<Like[]>{
+    return this.http.get<Like[]>(this.likesUrl)
+  }
   getUserLikes(userId:number): Observable<Like[]>{
     const url=`${this.likesUrl}?userId=${userId}`;
     return this.http.get<Like[]>(url);

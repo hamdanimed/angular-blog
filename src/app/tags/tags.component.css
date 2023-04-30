@@ -25,7 +25,7 @@
 }
 .tag{
   background: #FFFFFF;
-  border: .125rem solid #858585;
+  border: .125rem solid var(--primary-grey);
   border-radius: .625rem;
   font-family: 'Inter';
   font-style: normal;
@@ -41,8 +41,8 @@
 
 }
 .selected-tag{
-  background: var(--primary-grey);
-  color: white;
+  color: black;
+  border-color: black;
 }
 
 /* For responsive design, add the following media queries */
