@@ -22,6 +22,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRountingModule } from './app-rounting.module';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { TruncatePipe } from './pipe/truncatePipe';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -52,7 +53,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostCardComponent,
     PostCommentComponent,
     ProfilePageComponent,
-    HomePageComponent
+    HomePageComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

@@ -15,27 +15,31 @@
                 <div class="post-timestamp">
                     {{eagerPost.date | date:"d-MM-y"}}
                 </div>
-                <div routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title | uppercase}}</div>
+                <div routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title  | truncate:[26] | uppercase}}</div>
             </div>
-            <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
-            <div class="post-stats">
-                <a href="#" class="post-likes">
-                    <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
-                </a>
-                <a href="#" class="post-comments">
-                    <span>{{eagerPost.commentsCount}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
-                </a>
-            </div>
-            <div class="post-actions">
-                <button class="view-post">
-                    <fa-icon [icon]="faEye"></fa-icon>
-                </button>
-                <button class="edit-post">
-                    <fa-icon [icon]="faPen"></fa-icon>
-                </button>
-                <button class="delete-post">
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                </button>
+            <div class="post-data">
+                <div class="post-category-container">
+                    <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
+                </div>
+                <div class="post-stats">
+                    <a href="#" class="post-likes">
+                        <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
+                    </a>
+                    <a href="#" class="post-comments">
+                        <span>{{eagerPost.commentsCount}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
+                    </a>
+                </div>
+                <div class="post-actions">
+                    <button class="view-post">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                    </button>
+                    <button class="edit-post">
+                        <fa-icon [icon]="faPen"></fa-icon>
+                    </button>
+                    <button class="delete-post">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </div>
 
             </div>
         </div>
