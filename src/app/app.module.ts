@@ -28,8 +28,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: 'http://localhost:8081/',
-        realm: 'angularHerosApp',
-        clientId: 'blogApp'
+        realm: 'PFS',
+        clientId: 'blog-app'
       },
       initOptions: {
         onLoad: 'login-required',
@@ -65,12 +65,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
    AppRountingModule,
   ],
   providers: [
-  //   {
-  //   provide:APP_INITIALIZER,
-  //   useFactory:initializeKeycloak,
-  //   multi:true,
-  //   deps:[KeycloakService]
-  // }
+    {
+    provide:APP_INITIALIZER,
+    useFactory:initializeKeycloak,
+    multi:true,
+    deps:[KeycloakService]
+  }
 ],
   bootstrap: [AppComponent]
 })

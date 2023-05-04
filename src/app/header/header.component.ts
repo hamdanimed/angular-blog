@@ -17,16 +17,27 @@ export class HeaderComponent {
   faList = faList;
   faSearch = faSearch;
   navOpen="";
+
+  username:string="";
   
   constructor(private readonly keycloak: KeycloakService){}
+  ngOnInit(){
+    this.clientId();
+  }
   
   public endSession() {
     // window.location.replace("http://localhost:8081/realms/angularHerosApp/protocol/openid-connect/logout");
     this.keycloak.logout(); 
   }
 
+  public getUserName(): string{
+    this.keycloak.loadUserProfile();
+    return this.keycloak.getUsername();
+  }
+
   async clientId(){
       let profil= await this.keycloak.loadUserProfile();
+      this.username=profil.username?profil.username:"";
       return profil.id;
   }
 
