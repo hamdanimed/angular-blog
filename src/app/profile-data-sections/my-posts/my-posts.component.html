@@ -1,29 +1,29 @@
 <div class="my-posts-container">
     <div class="my-posts-header">
         <div class="post-filters">
-            <button class=" filter-button selected-filter">NEWEST</button>
-            <button class="filter-button ">POPULAR</button>
+            <button class=" filter-button" [ngClass]="{'selected-filter': filter==='newest'}" (click)="setFilter('newest')">NEWEST</button>
+            <button class="filter-button " [ngClass]="{'selected-filter': filter==='popular'}" (click)="setFilter('popular')">POPULAR</button>
 
         </div>
-        <span *ngIf="posts">{{posts.length}}</span>
+        <span *ngIf="eagerPosts">{{eagerPosts.length}}</span>
         <fa-icon class="add-post-icon" [icon]="faPlus"></fa-icon>
     </div>
-    <div *ngIf="posts" class="posts">
+    <div *ngIf="eagerPosts" class="posts">
         
-        <div *ngFor="let post of posts;let index=index" class="post">
+        <div *ngFor="let eagerPost of eagerPosts;let index=index" class="post">
             <div class="post-info">
                 <div class="post-timestamp">
-                    {{dates[index] | date:"d-MM-y"}}
+                    {{eagerPost.date | date:"d-MM-y"}}
                 </div>
-                <div routerLink="/post/{{post.id}}" class="post-title">{{post.title | uppercase}}</div>
+                <div routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title | uppercase}}</div>
             </div>
-            <a href="#" *ngIf="categories[index]" class="post-category">{{categories[index].name | uppercase}}</a>
+            <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
             <div class="post-stats">
                 <a href="#" class="post-likes">
-                    <span>{{likesCounters[index]}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
+                    <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
                 </a>
                 <a href="#" class="post-comments">
-                    <span>{{commentsCounters[index]}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
+                    <span>{{eagerPost.commentsCount}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
                 </a>
             </div>
             <div class="post-actions">

@@ -5,6 +5,7 @@
     padding: 1.2rem;
     border-radius: 10px;
     height:30rem;
+    overflow-y: scroll;
 }
 .liked-posts-header{
     display: flex;
