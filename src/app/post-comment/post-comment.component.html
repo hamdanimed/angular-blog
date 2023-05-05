@@ -55,9 +55,9 @@
   <div class="generate-comment">
     <h3 class="comment-title">Comment</h3>
     <div *ngIf="comments" >
-      <div *ngFor="let comment of comments;let index=index;" class="label-comment">
+      <div *ngFor="let comment of comments;let index=index;" class="comment-container">
         <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment">
-        <div class="lx">
+        <div class="comment-subcontainer">
           <span class="comment-username">{{commentsUsers[index].username}}</span>
           <p class="style-comment">{{comment.content}}</p>
         </div>
