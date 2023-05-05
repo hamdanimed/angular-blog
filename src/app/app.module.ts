@@ -22,6 +22,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRountingModule } from './app-rounting.module';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PostModalComponent } from './post-modal/post-modal.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -52,7 +53,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostCardComponent,
     PostCommentComponent,
     ProfilePageComponent,
-    HomePageComponent
+    HomePageComponent,
+    PostModalComponent
   ],
   imports: [
     BrowserModule,
@@ -65,12 +67,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
    AppRountingModule,
   ],
   providers: [
-    {
-    provide:APP_INITIALIZER,
-    useFactory:initializeKeycloak,
-    multi:true,
-    deps:[KeycloakService]
-  }
+  //   {
+  //   provide:APP_INITIALIZER,
+  //   useFactory:initializeKeycloak,
+  //   multi:true,
+  //   deps:[KeycloakService]
+  // }
 ],
   bootstrap: [AppComponent]
 })
