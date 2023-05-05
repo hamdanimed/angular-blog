@@ -12,11 +12,14 @@ import { Category } from '../data-types/category';
 import { Picture } from '../data-types/picture';
 import { CommentInteraction } from '../data-types/comment';
 
+
+
 @Component({
   selector: 'app-post-comment',
   templateUrl: './post-comment.component.html',
   styleUrls: ['./post-comment.component.css']
 })
+
 export class PostCommentComponent {
   falike = faThumbsUp;
   facomment = faCommentAlt;
@@ -34,15 +37,18 @@ export class PostCommentComponent {
   commentsUsersAvatars:Picture[]=[];
   likesCounter:number=0;
   commentsCounter:number=0;
+  commentText: string = '';
+
 
   constructor(private fakeDataService: FakeDataService,private route:ActivatedRoute, private location: Location){}
 
   ngOnInit(){
+
     //get the post form service
     this.fakeDataService.getPost(Number(this.route.snapshot.paramMap.get('id'))).subscribe((post)=>{
       this.post=post;
       //after getting the post
-      
+
       this.date=new Date(this.post?.date*1000); //convert post date from timestamp to the object date to use the date pipe of angular
       //get the object user of the author of the post
       this.fakeDataService.getUser(this.post.userId).subscribe((user)=>{
@@ -63,10 +69,10 @@ export class PostCommentComponent {
           this.picture=picture;
         })
       }
-      //get the comments of the post
+       //get the comments of the post
       this.fakeDataService.getComments(this.post.id).subscribe((comments)=>{
         this.comments=comments; //can get empty array if the post doesnt have comments
-        
+
         //after getting the comments array
         //get the users that commented on the post
         this.comments.forEach((comment)=>{
@@ -80,17 +86,53 @@ export class PostCommentComponent {
         })
         this.commentsCounter=comments.length;
       })
+
       //get the likes of the post
       this.fakeDataService.getLikes(this.post.id).subscribe((likes)=>{
         this.likesCounter=likes.length;
       })
-    
+
     })
 
+  }
+
+  onSubmit() {
+    //do nothing if the message is empty
+    if (this.commentText.trim() === '') {
+
+      return;
+    }
+    const comment: CommentInteraction = {
+      id: null,
+      userId: 2, // Set current user ID as comment's user ID
+      postId: this.post.id,
+      date: new Date().getTime(),//Date.now(),
+      content: this.commentText
+    };
+      // Call addComment method from fakeDataService to add new comment
+    this.fakeDataService.addComment(comment).subscribe(() => {
+      // Clear the input text
+      this.commentText = '';
+      this.fakeDataService.getComments(this.post.id).subscribe((comments)=>{
+        this.comments=comments; //can get empty array if the post doesnt have comments
+
+        //after getting the comments array
+        //get the users that commented on the post
+          this.fakeDataService.getUser(comment.userId).subscribe((user)=>{
+            this.commentsUsers.push(user);
+            //get the avatars of the users that commented on the post
+            this.fakeDataService.getPicture(user.avatarId).subscribe((avatar)=>{
+              this.commentsUsersAvatars.push(avatar);
+            })
+          })
+
+        this.commentsCounter=comments.length;
+      })
+    });
   }
 
   goBack(){
     this.location.back();
   }
-  
+
 }

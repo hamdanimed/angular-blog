@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data-service/in-memory-data.service';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -55,6 +56,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HomePageComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,

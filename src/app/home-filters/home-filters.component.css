@@ -108,12 +108,12 @@
 
  */
       width: 15%;
-       }
-      .sort-filter{
-        flex: 0 0 85%;
-    padding-right: .9375rem;
-    padding-left: .9375rem;
-      }
+    }
+    .sort-filter{
+      flex: 0 0 85%;
+      padding-right: .9375rem;
+      padding-left: .9375rem;
+    }
 
   }
 }
