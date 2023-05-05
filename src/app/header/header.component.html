@@ -14,7 +14,8 @@
 
             <a class="nav-profile" routerLink="profile/1">
                 <img src="https://picsum.photos/500" alt="profile icon">
-                <b>HAMDANIMED</b>
+                <!-- <b>HAMDANIMED</b> -->
+                <b>{{this.username | uppercase}}</b>
             </a>
             <a href="#" class="home-mobile">
                 <fa-icon class="header-icon" [icon]="faHome"></fa-icon>
@@ -22,9 +23,9 @@
                 
             </a>
 
-            <a href="#" (click)="endSession()" class="logout-btn">
+            <button (click)="endSession()" class="logout-btn">
                 <fa-icon class="header-icon" [icon]="faSignOut"></fa-icon>
                 <span>Logout</span>
-            </a>
+            </button>
         </nav> 
 </header>

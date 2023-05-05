@@ -24,14 +24,15 @@ import { AppRountingModule } from './app-rounting.module';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TruncatePipe } from './pipe/truncatePipe';
+import { PostModalComponent } from './post-modal/post-modal.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
         url: 'http://localhost:8081/',
-        realm: 'angularHerosApp',
-        clientId: 'blogApp'
+        realm: 'PFS',
+        clientId: 'blog-app'
       },
       initOptions: {
         onLoad: 'login-required',
@@ -55,7 +56,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     PostCommentComponent,
     ProfilePageComponent,
     HomePageComponent,
-    TruncatePipe
+    TruncatePipe,
+    PostModalComponent,
   ],
   imports: [
     FormsModule,
