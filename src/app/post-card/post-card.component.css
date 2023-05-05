@@ -8,10 +8,7 @@
   border-radius: .625rem;
   overflow: hidden;
   padding:0.5rem;
-  /* margin: 0 .9375rem; */
-  /* margin-top: 2.125rem; */
-/*    width: 870px;
- */
+
 }
 
 .card-post__header {
@@ -38,40 +35,34 @@
   display: flex;
   flex-direction: column;
 }
- .card-post__username h4{
+.card-post__username h4{
   font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 0.875rem;
-line-height: 1.0625rem;
-/* identical to box height */
-
-
-color: #000000;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  /* identical to box height */
+  color: #000000;
 
 }
 .card-post__username span{
   font-family: 'Inter';
-font-style: italic;
-font-weight: 700;
-font-size: 0.625rem;
-line-height: 1.3125rem;
-/* identical to box height, or 210% */
-margin-left: 0.6rem;
-
-color: var(--primary-grey);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.625rem;
+  line-height: 1.3125rem;
+  /* identical to box height, or 210% */
+  margin-left: 0.6rem;
+  color: var(--primary-grey);
 }
 .card-post__date{
-
-font-family: 'Inter';
-font-style: italic;
-font-weight: 500;
-font-size: 0.75rem;
-line-height: 0.9375rem;
-/* identical to box height */
-
-
-color: #000000;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  /* identical to box height */
+  color: #000000;
 }
 .card-post__header-right .card-post__label {
   background-color: var(--green);
@@ -79,8 +70,8 @@ color: #000000;
   padding: 0.3125rem 0.625rem;
   border-radius: 0.3125rem;
   align-self: flex-start;
- font-weight: 700;
- font-size: 0.75rem;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
 .card-post__body {
@@ -104,19 +95,20 @@ color: #000000;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: -0.0625rem;
+  padding-left: .875rem;
 }
 
 .card-post__image {
-  /* width: 100%; */
   display: flex;
-  padding: 2.1875rem;
-  /* flex-direction: column;
-  background-image: url('https://i.pinimg.com/564x/7c/d9/42/7cd9425c3c992be59f31dc899c448bf1.jpg');
-  width: 100%;
-  height: ;
-  background-repeat:no-repeat ;
-  background-size: cover; */
-  margin-bottom: -1rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+}
+.card-post__image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .card-post__footer {
@@ -124,36 +116,34 @@ color: #000000;
   justify-content: center;
   align-items: center;
   background-color: #FFF;
-  padding-bottom: .625rem
-  ;
+  padding-bottom: .625rem;
 }
 .card-post__tag-btn{
   margin: 0 .9375rem;
   background: #FFFFFF;
-border: 0.125rem solid var(--primary-grey);
-border-radius: .625rem;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: .9375rem;
-line-height: 1.125rem;
-color: #858585;
-cursor: pointer;
-transition: .5s all ease;
-
+  border: 0.125rem solid var(--primary-grey);
+  border-radius: .625rem;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: .9375rem;
+  line-height: 1.125rem;
+  color: #858585;
+  cursor: pointer;
+  transition: .5s all ease;
 }
 .card-post__tag-btn.icon-size{
 
 }
 .like:hover,.like:focus{
-  color: #00aaff;
-  border-color:#00aaff ;
-  
+  color: #000000;
+  border-color:#000000 ;
+
 }
 
 .comment:hover,.comment:focus{
-  color: #00aaff;
-  border-color:#00aaff ;
+  color: #000000;
+  border-color:#000000 ;
 }
 
 @media (max-width:768px){

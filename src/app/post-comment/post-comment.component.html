@@ -23,8 +23,11 @@
   </div>
   <div routerLink="/post/{{post.id}}" class="card-post__body">
     <h2 class="card-post__title">{{post.title | uppercase}}</h2>
-    <p class="card-post__description">{{post.content}}</p>    
-    <img *ngIf="picture" src="{{picture.url}}" alt="{{picture.alt}}" class="card-post__image">
+    <p class="card-post__description">{{post.content}}</p>
+    <div class="card-post__image">
+
+      <img *ngIf="picture" src="{{picture.url}}" alt="{{picture.alt}}" >
+    </div>
 
     <!-- <h2 class="card-post__title">2022–23 UEFA Champions League</h2>
     <p class="card-post__description">The 2022–23 UEFA Champions League is the 68th season of Europe's premier club football tournament organised by UEFA,
@@ -51,24 +54,27 @@
   </div>
   <div class="generate-comment">
     <h3 class="comment-title">Comment</h3>
-    <div *ngIf="comments">
-      <div *ngFor="let comment of comments;let index=index;" class="label-comment">
+    <div *ngIf="comments" >
+      <div *ngFor="let comment of comments;let index=index;" class="comment-container">
         <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment">
-        <div class="lx">
+        <div class="comment-subcontainer">
+          <span class="comment-username">{{commentsUsers[index].username}}</span>
           <p class="style-comment">{{comment.content}}</p>
         </div>
     </div>
     </div>
 
-    <form class="form-comment">
+    <form class="form-comment" (ngSubmit)="onSubmit()">
 
       <div class="input-comment">
         <img src="https://via.placeholder.com/50x50" alt="profile picture" class="profile-pic-comment">
         <div class="post-form">
 
-            <textarea class="flex-textarea" placeholder="Write a comment..." >
+            <textarea class="flex-textarea" id="comment-text" [(ngModel)]="commentText" name="commentText" placeholder="Write a comment..." >
+
             </textarea>
-            <!-- <fa-icon class="textarea-icon" [icon]="fasend"></fa-icon> -->
+            <button type="submit" class="textarea-icon"  ><fa-icon [icon]="fasend"></fa-icon></button>
+
 
         </div>
       </div>

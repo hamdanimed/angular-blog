@@ -68,7 +68,7 @@
 
       <img *ngIf="avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic" >
       <!-- <img routerLink="/profile/{{userId}}" src="https://via.placeholder.com/50x50" alt="profile picture" class="card-post__profile-pic" > -->
-      
+
       <div class="card-post__profile-info" >
         <h4 class="card-post__username">
           {{user.username}}
@@ -85,11 +85,13 @@
   </div>
   <div class="card-post__body">
     <h2 class="card-post__title">{{post.title | uppercase}}</h2>
-    <p class="card-post__description">{{post.content}}</p>  
+    <p class="card-post__description">{{post.content}}</p>
     <a routerLink="/post/{{post.id}}">
-      <img *ngIf="picture"  src="{{picture.url}}" alt="{{picture.alt}}" class="card-post__image">
-    </a>  
-    
+      <div class="card-post__image">
+        <img *ngIf="picture"  src="{{picture.url}}" alt="{{picture.alt}}" >
+      </div>
+    </a>
+
     <!-- <h2 class="card-post__title">2022–23 UEFA Champions League</h2> -->
     <!-- <p class="card-post__description">The 2022–23 UEFA Champions League is the 68th season of Europe's premier club football tournament organised by UEFA,
       and the 31st season since it was renamed from the European Champion Clubs' Cup to the UEFA Champions League.
@@ -97,7 +99,7 @@
       The stadium was originally appointed to host the 2020 UEFA Champions League final,
       but both this and the 2021 final, which had been subsequently re-allocated to the Atatürk,re moved due to the COVID-19 pandemic.
     </p> -->
-   
+
     <!-- <img routerLink="/post/{{post.id}}" src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt70daa54765a35b28/635da92537148a6bc9945eaa/20221030_Champions_League_trophy.jpg?auto=webp&format=pjpg&width=1200&quality=60" alt="post image" class="card-post__image"> -->
 
  </div>
