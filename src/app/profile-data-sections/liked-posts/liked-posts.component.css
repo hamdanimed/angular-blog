@@ -50,7 +50,7 @@
 }
 .post{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
     width: 90%;
@@ -77,14 +77,15 @@
     color: black;
 }
 .post-category{
-    width: 150px;
+    width: 130px;
     text-align: center;
-    background-color: var(--green);
+    background-color: white;
+    border : solid var(--green) 2px;
     text-decoration: none;
-    color:white;
-    padding: 0.375rem 0.875rem;
+    color : var(--green);
     margin-right:0.5rem;
-    border-radius: 5px;
+    border-radius: 10px;
+    align-self: center;
 }
 .post-details{
     display: flex;
@@ -122,5 +123,16 @@
 @media screen and (max-width: 728px) {
     .my-posts-header span:nth-child(2){
         margin-left:0;
+    }
+}
+@media screen and (max-width: 1188px) {
+    /* .post-details{
+        width: 100%;
+    } */
+    .post{
+        justify-content: center;
+    }
+    .post-info{
+        justify-content: center;
     }
 }
