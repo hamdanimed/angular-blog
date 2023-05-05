@@ -13,10 +13,10 @@
                 <div class="post-timestamp">
                     {{eagerPost.date | date:"d-MM-y HH:mm"}}
                 </div>
-                <a routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title | uppercase}}</a>
+                <a routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title | truncate:[26] | uppercase}}</a>
             </div>
             <div class="post-details">
-                <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
+                <button href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</button>
                 <div class="post-stats">
                     <a href="#" class="post-likes">
                         <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>

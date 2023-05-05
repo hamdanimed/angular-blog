@@ -18,9 +18,7 @@
                 <div routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title  | truncate:[26] | uppercase}}</div>
             </div>
             <div class="post-data">
-                <div class="post-category-container">
                     <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
-                </div>
                 <div class="post-stats">
                     <a href="#" class="post-likes">
                         <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
