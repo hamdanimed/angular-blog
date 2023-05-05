@@ -15,7 +15,7 @@
             <a class="nav-profile" routerLink="profile/1">
                 <img src="https://picsum.photos/500" alt="profile icon">
                 <!-- <b>HAMDANIMED</b> -->
-                <b>{{this.username | uppercase}}</b>
+                <b>{{this.username ? this.username:"hamdanimed" | uppercase}}</b>
             </a>
             <a href="#" class="home-mobile">
                 <fa-icon class="header-icon" [icon]="faHome"></fa-icon>
