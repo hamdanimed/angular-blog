@@ -57,7 +57,7 @@
     <div *ngIf="comments" >
       <div *ngFor="let comment of comments;let index=index;" class="comment-container">
         <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment">
-        <div class="comment-subcontainer">
+        <div *ngIf="commentsUsers[index]" class="comment-subcontainer">
           <span class="comment-username">{{commentsUsers[index].username}}</span>
           <p class="style-comment">{{comment.content}}</p>
         </div>

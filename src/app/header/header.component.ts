@@ -22,7 +22,7 @@ export class HeaderComponent {
   
   constructor(private readonly keycloak: KeycloakService){}
   ngOnInit(){
-    this.clientId();
+    // this.clientId();
   }
   
   public endSession() {
