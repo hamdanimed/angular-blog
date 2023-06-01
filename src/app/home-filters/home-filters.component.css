@@ -83,10 +83,10 @@
     margin-bottom: .9375rem;
   }
 
-  .tag{
+  /* .tag{
     width: 5.6875rem;
 
-  }
+  } */
   .plus{
 
 /*     margin-right: 1.25rem !important;
@@ -97,9 +97,9 @@
 @media (max-width: 576px) {
 
   .tag{
-    font-size: .725rem;
-/*     width: 4.6875rem;
- */  }
+    /* font-size: .725rem; */
+     /* width: 4.6875rem; */
+   }
   @media (max-width: 400px){
     .plus-position{
     /* padding-left: 2.8125rem;

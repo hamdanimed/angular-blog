@@ -62,6 +62,20 @@
     </div>
   </div>
 </div> -->
+<div class="card-post" *ngIf="!user">
+
+  <div class="card-post__body">
+    <h2 class="card-post__title">loading</h2>
+    <!-- <p class="card-post__description"></p> -->
+    <!-- <a routerLink="/post/{{post.id}}"> -->
+      <!-- <div class="card-post__image">
+        <div style="background-color: black;"></div>
+        <img *ngIf="picture"  src="{{picture.url}}" alt="{{picture.alt}}" >
+      </div> -->
+    <!-- </a> -->
+ </div>
+</div>
+
 <div class="card-post" *ngIf="user && category">
   <div class="card-post__header">
     <div class="card-post__header-left">

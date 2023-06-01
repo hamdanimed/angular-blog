@@ -4,7 +4,7 @@ import { Post } from '../data-types/post';
 import { Category } from '../data-types/category';
 import { User } from '../data-types/user';
 import { Follow } from '../data-types/follow';
-import { async, forkJoin, take } from 'rxjs';
+import { BehaviorSubject, async, forkJoin, take } from 'rxjs';
 import { Like } from '../data-types/like';
 
 @Component({
@@ -14,8 +14,8 @@ import { Like } from '../data-types/like';
 })
 export class HomePageComponent {
   tags:Category[]=[];
-  posts:Post[]=[];
-  shownPosts:Post[] = [];
+  posts:Post[]=[{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
+  shownPosts:Post[] = [{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
   likes:Like[] = []
   following:Follow[] = []
   
@@ -62,8 +62,6 @@ export class HomePageComponent {
     this.updateShownPosts();
     
   }
-  
-  
   
   constructor(private fakeDataService : FakeDataService){}
   ngOnInit(){
