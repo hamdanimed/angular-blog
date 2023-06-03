@@ -1,5 +1,5 @@
 <div class="container">
-  <app-home-filters (forYouEvent)="toggleForYou()" [forYou]="forYou" [sort]="sort" (selectSortEvent)="setSort($event)" style="grid-area: filter;"></app-home-filters>
+  <app-home-filters (forYouEvent)="toggleForYou()" [forYou]="forYou" [sort]="sort" [categories]="tags" (selectSortEvent)="setSort($event)" style="grid-area: filter;"></app-home-filters>
   <!-- <div></div> -->
   <div style="grid-area: main;" class="feed">
     <app-post-card *ngFor="let post of shownPosts" [post]="post"></app-post-card>

@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+
+    "start-w-keycloak": "concurrently --kill-others \"npm run keycloak\" \"ng serve --open\"",
+    "keycloak": "cd keycloak-21.1.1/bin && kc.bat start-dev"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +38,7 @@
     "@angular/compiler-cli": "^15.2.0",
     "@faker-js/faker": "^7.6.0",
     "@types/jasmine": "~4.3.0",
+    "concurrently": "^8.1.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
