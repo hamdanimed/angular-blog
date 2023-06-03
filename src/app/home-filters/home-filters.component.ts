@@ -2,6 +2,7 @@ import { Component, Output,Input,EventEmitter } from '@angular/core';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlus,faTimes,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '../data-types/category';
+import { Post } from '../data-types/post';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class HomeFiltersComponent {
   faPlus = faPlus;
   faTimes = faTimes;
   faTrash = faTrash;
+
+  post:Post={id:null,userId:0,date:0,title:"",content:"",picturesId:[],categorieId:0};
   images:{url:any,file:File}[]=[];
   
   @Input() categories:Category[]=[];

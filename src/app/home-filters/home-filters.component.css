@@ -249,10 +249,10 @@
     width: 5.6875rem;
 
   } */
-  .plus{
+  /* .plus{ */
 
-/*     margin-right: 1.25rem !important;
- */  }
+/*     margin-right: 1.25rem !important;*/
+  /* } */
 
 }
 
@@ -261,10 +261,10 @@
     width: 90vw;
     padding:1.5rem;
   }
-  .tag{
+  /* .tag{ */
     /* font-size: .725rem; */
      /* width: 4.6875rem; */
-   }
+   /* } */
 }
   
 @media (max-width: 400px){
