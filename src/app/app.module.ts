@@ -20,11 +20,15 @@ import { PostCommentComponent } from './post-comment/post-comment.component';
 
 import { APP_INITIALIZER } from '@angular/core';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { AppRountingModule } from './app-rounting.module';
+import { AppRoutingModule } from './app-routing.module';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TruncatePipe } from './pipe/truncatePipe';
 import { PostModalComponent } from './post-modal/post-modal.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -68,7 +72,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
       InMemoryDataService, { dataEncapsulation: false }
    ),
    KeycloakAngularModule,
-   AppRountingModule,
+   AppRoutingModule,
+   provideFirebaseApp(() => initializeApp(environment.firebase)),
+   provideFirestore(() => getFirestore()),
+   provideStorage(() => getStorage()),
   ],
   providers: [
     // {

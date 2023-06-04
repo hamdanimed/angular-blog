@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-blog-fdba2"
+  },
+  "targets": {
+    "angular-blog-fdba2": {
+      "hosting": {
+        "angular-blog": [
+          "angular-blog-fdba2"
+        ]
+      }
+    }
+  }
+}

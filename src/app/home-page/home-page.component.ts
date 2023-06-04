@@ -4,8 +4,8 @@ import { Post } from '../data-types/post';
 import { Category } from '../data-types/category';
 import { User } from '../data-types/user';
 import { Follow } from '../data-types/follow';
-import { BehaviorSubject, async, forkJoin, take } from 'rxjs';
 import { Like } from '../data-types/like';
+import { Firestore, collection, collectionData,doc,setDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home-page',
@@ -62,9 +62,14 @@ export class HomePageComponent {
     this.updateShownPosts();
     
   }
-  
-  constructor(private fakeDataService : FakeDataService){}
+
+  constructor(private fakeDataService : FakeDataService,private store:Firestore){}
   ngOnInit(){
+    const aCollection=collection(this.store,'categories');
+    collectionData(aCollection).subscribe((items)=>{
+      console.log(items)
+    })
+
     this.fakeDataService.getAllLikes().subscribe((likes:Like[])=>{
       this.likes=likes;
     })
