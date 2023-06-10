@@ -1,7 +1,10 @@
 <div class="container">
   <app-home-filters (forYouEvent)="toggleForYou()" [forYou]="forYou" [sort]="sort" [categories]="tags" (selectSortEvent)="setSort($event)" style="grid-area: filter;"></app-home-filters>
   <!-- <div></div> -->
-  <div style="grid-area: main;" class="feed">
+  <div style="grid-area: main;margin-bottom: 5rem;" class="feed">
+    <div class="no-posts-card" *ngIf="shownPosts.length === 0">
+        <p>No posts available</p>
+    </div>
     <app-post-card *ngFor="let post of shownPosts" [post]="post"></app-post-card>
   </div>
   <app-tags (selectTagEvent)="setTag($event)" [selectedTag]="tag" [tags]="tags" style="grid-area: category;" class="category"></app-tags>

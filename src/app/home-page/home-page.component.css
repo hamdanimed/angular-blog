@@ -43,6 +43,22 @@
 .comment{
   width: 80%;
 }
+
+.no-posts-card {
+  background-color: #FFFFFF;
+  box-shadow: 0rem 2.611 2.089rem rgba(0, 0, 0, 0.0503198),0rem 1.396rem 1.117rem rgba(0, 0, 0, 0.0417275),0rem 0.783rem 0.626rem rgba(0, 0, 0, 0.035),0rem 0.416rem 0.333rem rgba(0, 0, 0, 0.0282725),0rem 0.173rem 0.138rem rgba(0, 0, 0, 0.0196802);
+  border-radius: .625rem;
+  overflow: hidden;
+  padding:calc( 0.7rem + 0.315rem ) 1.25rem;
+  text-align: center;
+}
+
+.no-posts-card > p {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--primary-grey);
+}
+
   
 @media (max-width: 768px) {
   .comment{

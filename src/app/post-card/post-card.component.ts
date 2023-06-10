@@ -25,8 +25,8 @@ export class PostCardComponent {
     picture!:Picture;
     avatar!:Picture;
     date!:Date|null;
-    likesCounter:number=0;
-    commentsCounter:number=0;
+    likesCounter!:number;
+    commentsCounter!:number;
     
     constructor(private fakeDataService: FakeDataService){}
     ngOnInit(){
@@ -45,7 +45,7 @@ export class PostCardComponent {
         this.category=category;
       })
       //if the post has a pictures , get the first picture of the array
-      if(this.post.picturesId.length){
+      if(this.post.picturesId.length !== 0){
         this.fakeDataService.getPicture(this.post.picturesId[0]).subscribe((picture)=>{
           this.picture=picture;
         })

@@ -35,6 +35,11 @@
   transition-duration: 0.3s;
   color: #858585;
 }
+
+.skeleton-tag{
+  border: 0;
+}
+
 .selected-tag{
   color: black;
   border-color: black;
@@ -46,6 +51,19 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+  }
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(0, 0%, 86%);
+  }
+  100% {
+    background-color: hsl(0, 0%, 95%);
   }
 }
 

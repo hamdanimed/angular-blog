@@ -14,8 +14,10 @@ import { Firestore, collection, collectionData,doc,setDoc } from '@angular/fire/
 })
 export class HomePageComponent {
   tags:Category[]=[];
-  posts:Post[]=[{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
-  shownPosts:Post[] = [{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
+  // posts:Post[]=[{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
+  // shownPosts:Post[] = [{id:0,picturesId:[6],title:'not yet',userId:1,date:1675112925,content:'not loaded yet',categorieId:1}];
+  posts:Post[]=[];
+  shownPosts:Post[] = [];
   likes:Like[] = []
   following:Follow[] = []
   
