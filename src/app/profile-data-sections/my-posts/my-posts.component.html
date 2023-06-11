@@ -31,10 +31,10 @@
                     <button (click)="redirectToViewPost(eagerPost.post.id)" class="view-post">
                         <fa-icon [icon]="faEye"></fa-icon>
                     </button>
-                    <button class="edit-post" (click)="modifyPost(eagerPost.post.id,createPostModal)">
+                    <button class="edit-post" *ngIf="loggedInUser.username===userInPage.username" (click)="modifyPost(eagerPost.post.id,createPostModal)">
                         <fa-icon [icon]="faPen"></fa-icon>
                     </button>
-                    <button (click)="verifyDeletePost(eagerPost.post.id,deleteVerifictionModal)" class="delete-post">
+                    <button *ngIf="loggedInUser.username===userInPage.username" (click)="verifyDeletePost(eagerPost.post.id,deleteVerifictionModal)" class="delete-post">
                         <fa-icon [icon]="faTrash"></fa-icon>
                     </button>
                 </div>

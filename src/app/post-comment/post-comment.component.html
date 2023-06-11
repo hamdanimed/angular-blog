@@ -9,7 +9,7 @@
         <!-- <img *ngIf="avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic"> -->
         <div class="card-post__profile-info">
           <h4 class="card-post__username">
-            {{postUser.username}}
+            <a href="/profile/{{postUser.username}}">{{postUser.username}}</a>
             <span (click)="toggleFollow()" class="follow-span">{{followText | uppercase}}</span>
           </h4>
           <p *ngIf="date" class="card-post__date">{{date | date:"h:mm, d MMMM y"}}</p>

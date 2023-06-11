@@ -14,6 +14,7 @@ import { FirebaseService } from 'src/app/services/firebase-service/firebase.serv
 export class FollowingComponent {
 
   userInPage!:any;
+  loggedInUser!:any;
 
   following!:any[];
   followingList:any[]=[];
@@ -25,6 +26,7 @@ export class FollowingComponent {
     this.route.parent?.params.subscribe((params)=>{
       //get the following list of the user with the id in parameter
       this.userInPage={username:params['id']};
+      this.loggedInUser=this.firebase.user;
       console.log(this.userInPage)
       this.firebase.getFollowers().subscribe(followers=>{
         this.following=followers.filter(follow=>follow.idFollower===this.userInPage.username);

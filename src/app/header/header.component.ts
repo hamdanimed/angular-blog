@@ -3,6 +3,7 @@ import {faHome,faSignOut,faList,faSearch} from '@fortawesome/free-solid-svg-icon
 import { AppComponent } from '../app.component';
 
 import { KeycloakService } from 'keycloak-angular';
+import { FirebaseService } from '../services/firebase-service/firebase.service';
 
 @Component({
   selector: 'app-header',
@@ -20,9 +21,9 @@ export class HeaderComponent {
 
   username:string="hamdanimed";
   
-  constructor(private readonly keycloak: KeycloakService){}
+  constructor(private readonly keycloak: KeycloakService,private firebase:FirebaseService){}
   ngOnInit(){
-    // this.clientId();
+    this.clientId();
   }
   
   public endSession() {
@@ -38,6 +39,8 @@ export class HeaderComponent {
   async clientId(){
       let profil= await this.keycloak.loadUserProfile();
       this.username=profil.username?profil.username:"";
+      console.log(profil);
+      this.firebase.user.username=this.username;
       return profil.id;
   }
 

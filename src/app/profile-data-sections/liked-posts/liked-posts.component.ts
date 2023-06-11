@@ -47,36 +47,44 @@ export class LikedPostsComponent {
       //get the following list of the user with the id in parameter
       this.firebase.getLikes().subscribe(likes=>{
         const userInPageLikes=likes.filter(like=>like.username===this.userInPage.username);
-        let post:any[]=[];
+        // let post:any[]=[];
         
-        this.firebase.getCategories().subscribe(categories=>{
-          console.log(categories[0]['id'])
-        })
+        // this.firebase.getCategories().subscribe(categories=>{
+        //   console.log(categories[0]['id'])
+        // })
         
         userInPageLikes.forEach(like=>{
+          console.log(like.postId)
           this.firebase.getPost(like.postId).subscribe((post)=>{
-            let eagerPost :any = {post:{},date:0,category:"",commentsCount:0,likesCount:0};
-            eagerPost.post=post.data();
-            eagerPost.post.id=like.postId;
-            eagerPost.date=new Date(eagerPost.post.date);
-            console.log(eagerPost)
+            if(post.data()){
 
-            this.firebase.getCategories().subscribe(categories=>{
-              // categories=categories
-              console.log(String(eagerPost.post.categorieId))
-              eagerPost.category=categories.filter(categorie=>{return categorie['id']===String(eagerPost.post.categorieId)})[0];
-            });
+              let eagerPost :any = {post:{},date:0,category:"",commentsCount:0,likesCount:0};
+              console.log(post)
+              console.log(post.data());
+              eagerPost.post=post.data();
+              console.log(eagerPost.post)
+              eagerPost.post.id=like.postId;
+              eagerPost.date=new Date(eagerPost.post.date);
+              // console.log(eagerPost)
+  
+              this.firebase.getCategories().subscribe(categories=>{
+                // categories=categories
+                // console.log(String(eagerPost.post.categorieId))
+                eagerPost.category=categories.filter(categorie=>{return categorie['id']===String(eagerPost.post.categorieId)})[0];
+              });
+  
+              this.firebase.getComments().subscribe(comments=>{
+                eagerPost.commentsCount=comments.filter(comment=>comment['postId']===eagerPost.post.id).length;
+              })
+  
+              this.firebase.getLikes().subscribe(likes=>{
+                eagerPost.likesCount=likes.filter(oneLike=>oneLike['postId']===eagerPost.post.id).length;
+              })
+  
+              // console.log(eagerPost)
+              this.eagerPosts.push(eagerPost);
 
-            this.firebase.getComments().subscribe(comments=>{
-              eagerPost.commentsCount=comments.filter(comment=>comment['postId']===eagerPost.post.id).length;
-            })
-
-            this.firebase.getLikes().subscribe(likes=>{
-              eagerPost.likesCount=likes.filter(oneLike=>oneLike['postId']===eagerPost.post.id).length;
-            })
-
-            console.log(eagerPost)
-            this.eagerPosts.push(eagerPost);
+            }
           })
         })
         // this.eagerPosts=userInPageLikes.map(like=>{
