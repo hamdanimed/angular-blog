@@ -81,4 +81,13 @@ export class FirebaseService {
     const aDoc=doc(this.db,'followers',`/${followId}`);
     return from(deleteDoc(aDoc));
   }
+  getUsers(){
+    const aCollection=collection(this.db,'users');
+    return collectionData<any>(aCollection,{idField:'id'});
+  }
+  addUser(user:any){
+    const aCollection=collection(this.db,'users');
+    return from(addDoc<any>(aCollection,user));
+  }
+
 }

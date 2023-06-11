@@ -22,8 +22,8 @@ export class HeaderComponent {
   username:string="hamdanimed";
   
   constructor(private readonly keycloak: KeycloakService,private firebase:FirebaseService){}
-  ngOnInit(){
-    this.clientId();
+  async ngOnInit(){
+    await this.clientId();
   }
   
   public endSession() {
@@ -38,9 +38,57 @@ export class HeaderComponent {
 
   async clientId(){
       let profil= await this.keycloak.loadUserProfile();
-      this.username=profil.username?profil.username:"";
+      // this.username=profil.username?profil.username:"";
       console.log(profil);
-      this.firebase.user.username=this.username;
+
+      // if(profil.username === profil.email){
+      //   let usernameTemp=profil.email?.split('@')[0];
+
+      //   this.firebase.getUsers().subscribe(users=>{
+      //     while(users.filter(user=>user['username']===usernameTemp).length !== 0){
+      //       let val = Math.floor(1000 + Math.random() * 9000);
+      //       usernameTemp=profil.email?.split('@')[0]+String(val);
+      //     }
+      //     this.username=usernameTemp?usernameTemp:profil.username?profil.username:"";
+      //   })
+
+      // }else{
+      //   this.username=profil.username?profil.username:"";
+      // }
+
+      // let userExist=false;
+      const loggedInUser={username:profil.username,email:profil.email};
+      let generatedUsername="";
+      this.firebase.getUsers().subscribe(users=>{
+        
+        //if user doesnt exist
+        if(users.filter(user=>user.email===loggedInUser.email).length === 0){
+          //if user email == user username (logged in with google)
+          if(loggedInUser.email===loggedInUser.username){
+            generatedUsername=loggedInUser.email?.split('@')[0] as string;
+          }
+          else{
+            generatedUsername=loggedInUser.username as string;
+          }
+          while(users.filter(user=>user.username===generatedUsername).length !== 0){
+            let val=Math.floor(1000 + Math.random() * 9000);
+            generatedUsername+=String(val);
+          }
+          this.username=generatedUsername;
+       
+          this.firebase.addUser({username:this.username,email:loggedInUser.email}).subscribe(()=>{
+            console.log('user was added');
+          })
+        }
+        else{ //if user already exists
+          this.username=users.filter(user=>user.email===loggedInUser.email)[0].username;
+        }
+        console.log('username',this.username)
+        this.firebase.user.username=this.username;
+      })
+      // this.firebase.addUser({username:this.username,email:profil.email}).subscribe(()=>{
+      //   console.log('user added');
+      // })
       return profil.id;
   }
 
