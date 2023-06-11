@@ -6,7 +6,11 @@
         <img *ngIf="avatar" src="{{avatar.url}}" alt="{{avatar.alt}}" class="profile-photo">
     </div> -->
     <div class="profile-info">
-        <h3>{{userInPage.username | uppercase}} <fa-icon *ngIf="loggedInUser.username === userInPage.username" [icon]="faEdit"></fa-icon></h3>
+        <h3>{{userInPage.username | uppercase}}
+        <a href="http://localhost:8081/realms/pfsrealm/account/#/">
+            <fa-icon *ngIf="loggedInUser.username === userInPage.username" [icon]="faEdit"></fa-icon>
+        </a> 
+        </h3>
         <!-- <p>{{user.bio}}</p> -->
         <!-- <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
