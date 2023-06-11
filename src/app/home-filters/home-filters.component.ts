@@ -100,25 +100,40 @@ export class HomeFiltersComponent {
       this.newPost.categorieId=this.categories.filter(category=>category['name'].toLowerCase()===this.selectCategory.toLowerCase() )[0].id;
       this.newPost.date=Date.now();
       this.newPost.username=this.loggedInUser.username;
-      this.cloudinary.uploadPhoto(this.getFile()||new FileList()).subscribe(
-        (data:any)=>{
-          console.log(data)
-          this.newPost.pictureUrl=data.url;
-          console.log(this.newPost);
-          this.firebase.addPost(this.newPost).subscribe(()=>{
-              console.log('create new post');
-              this.newPost={
-                title:"",
-                content:"",
-                date:0,
-                categorieId:0,
-                username:"",
-                pictureUrl:""
-              };
-              dialog.close();
-          })
-      
-      })
+      if(this.getFile() !== null){
+        this.cloudinary.uploadPhoto(this.getFile() as FileList).subscribe(
+          (data:any)=>{
+            // console.log(data)
+            this.newPost.pictureUrl=data.url;
+            // console.log(this.newPost);
+            this.firebase.addPost(this.newPost).subscribe(()=>{
+                console.log('create new post');
+                this.newPost={
+                  title:"",
+                  content:"",
+                  date:0,
+                  categorieId:0,
+                  username:"",
+                  pictureUrl:""
+                };
+                dialog.close();
+            })
+        })
+
+      }else{
+        this.firebase.addPost(this.newPost).subscribe(()=>{
+          console.log('create new post');
+          this.newPost={
+            title:"",
+            content:"",
+            date:0,
+            categorieId:0,
+            username:"",
+            pictureUrl:""
+          };
+          dialog.close();
+        })
+      }
       
     }else{
       console.log("not all field are filled");

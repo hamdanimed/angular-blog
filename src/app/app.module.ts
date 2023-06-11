@@ -43,7 +43,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       config: {
         url: 'http://localhost:8081/',
         realm: 'pfsrealm',
-        clientId: 'blog-app'
+        clientId: 'blog-app',
       },
       initOptions: {
         onLoad: 'login-required',
