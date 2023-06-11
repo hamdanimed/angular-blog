@@ -1,15 +1,18 @@
 <div class="following-container">
     <div class="following-header">
-        <span *ngIf="this.following">{{this.following.length}}</span>
+        <span *ngIf="following">{{following.length}}</span>
     </div>
-    <div *ngIf="this.followingList" class="profiles">
+    <div *ngIf="followingList" class="profiles">
         
         <div *ngFor="let user of followingList;let index=index;" class="following-profile">
-            <a href="/profile/{{user.id}}">
+            <!-- <a href="/profile/{{user.id}}">
                 <img *ngIf="followingListAvatars[index]" class="profile-picture" src="{{followingListAvatars[index].url}}" alt="{{followingListAvatars[index].alt}}">
-            </a>
+            </a> -->
+            <!-- <a href="/profile/{{user.id}}">
+                <img  class="profile-picture" src="https://picsum.photos/200" alt="placeholder">
+            </a> -->
             <span class="profile-name">{{user.username}}</span>
-            <button class="profile-follow">UNFOLLOW</button>
+            <button class="profile-follow" (click)="unfollow(following[index]['id'])">UNFOLLOW</button>
         </div>
         <!-- <div class="following-profile">
             <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">

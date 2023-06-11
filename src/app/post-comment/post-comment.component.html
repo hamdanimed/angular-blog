@@ -1,16 +1,16 @@
-<div class="card-post" *ngIf="user && category">
+<div class="card-post" *ngIf="category">
   <div class="card-post__header">
     <div class="card-post__header-left ">
 
-      <div class="icon " (click)="goBack()">
+      <div class="icon " style="cursor: pointer;" (click)="goBack()">
         <fa-icon class="Back" [icon]="faback"></fa-icon>
       </div>
       <div class=" profile">
-        <img *ngIf="avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic">
+        <!-- <img *ngIf="avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic"> -->
         <div class="card-post__profile-info">
           <h4 class="card-post__username">
-            {{user.username}}
-            <span>FOLLOW</span>
+            {{postUser.username}}
+            <span (click)="toggleFollow()" class="follow-span">{{followText | uppercase}}</span>
           </h4>
           <p *ngIf="date" class="card-post__date">{{date | date:"h:mm, d MMMM y"}}</p>
         </div>
@@ -26,7 +26,7 @@
     <p class="card-post__description">{{post.content}}</p>
     <div class="card-post__image">
 
-      <img *ngIf="picture" src="{{picture.url}}" alt="{{picture.alt}}" >
+      <img *ngIf="post.pictureUrl.length" src="{{post.pictureUrl}}" alt="post image" >
     </div>
 
     <!-- <h2 class="card-post__title">2022–23 UEFA Champions League</h2>
@@ -42,7 +42,7 @@
  </div>
   <div class="card-post__footer">
 
-      <button class="card-post__tag-btn like">
+      <button class="card-post__tag-btn like" [ngClass]="{'like-active':didUserLikePost}" (click)="toggleLikePost()">
         <fa-icon class="" [icon]="falike"></fa-icon>
         {{likesCounter}}
       </button>
@@ -56,25 +56,29 @@
     <h3 class="comment-title">Comment</h3>
     <div *ngIf="comments" >
       <div *ngFor="let comment of comments;let index=index;" class="comment-container">
-        <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment">
-        <div *ngIf="commentsUsers[index]" class="comment-subcontainer">
+        <!-- <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment"> -->
+        <div *ngIf="commentsUsers[index] &&  comment.id!==commentToBeEdited.id" class="comment-subcontainer">
           <span class="comment-username">{{commentsUsers[index].username}}</span>
           <p class="style-comment">{{comment.content}}</p>
         </div>
+        
+        <textarea *ngIf="commentsUsers[index] && comment.id===commentToBeEdited.id" class="edit-textarea" id="comment-text" [(ngModel)]="comment.content" name="commentText" ></textarea>
+        <div class="comment-action-container">
+          <button *ngIf="commentsUsers[index].username === loggedInUser.username" class="comment-action" (click)="editComment(comment)"><fa-icon [icon]="faPencil"></fa-icon></button>
+          <button *ngIf="commentsUsers[index].username === loggedInUser.username" class="comment-action" (click)="verifyDeleteComment(comment.id,deleteVerifictionModal)"><fa-icon [icon]="faTimes"></fa-icon></button>
+        </div>
+
     </div>
     </div>
 
     <form class="form-comment" (ngSubmit)="onSubmit()">
 
       <div class="input-comment">
-        <img src="https://via.placeholder.com/50x50" alt="profile picture" class="profile-pic-comment">
+        <!-- <img src="https://via.placeholder.com/50x50" alt="profile picture" class="profile-pic-comment"> -->
         <div class="post-form">
 
-            <textarea class="flex-textarea" id="comment-text" [(ngModel)]="commentText" name="commentText" placeholder="Write a comment..." >
-
-            </textarea>
+            <textarea class="flex-textarea" id="comment-text" [(ngModel)]="commentText" name="commentText" placeholder="Write a comment..." ></textarea>
             <button type="submit" class="textarea-icon"  ><fa-icon [icon]="fasend"></fa-icon></button>
-
 
         </div>
       </div>
@@ -82,3 +86,14 @@
 
   </div>
 </div>
+<dialog class="verification-modal" #deleteVerifictionModal>
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3>You want to delete this comment ?</h3>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn" (click)="deleteComment(deleteVerifictionModal)">Confirm</button>
+      <button class="modal-btn" (click)="cancelCommentDeletion(deleteVerifictionModal)">Cancel</button>
+    </div>
+  </div>
+</dialog>

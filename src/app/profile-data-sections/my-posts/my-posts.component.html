@@ -6,35 +6,35 @@
 
         </div>
         <span *ngIf="eagerPosts">{{eagerPosts.length}}</span>
-        <fa-icon class="add-post-icon" [icon]="faPlus"></fa-icon>
+        <fa-icon class="add-post-icon" [icon]="faPlus" (click)="showModal(createPostModal)"></fa-icon>
     </div>
     <div *ngIf="eagerPosts" class="posts">
         
         <div *ngFor="let eagerPost of eagerPosts;let index=index" class="post">
             <div class="post-info">
                 <div class="post-timestamp">
-                    {{eagerPost.date | date:"d-MM-y"}}
+                    {{eagerPost.date | date:"dd-MM-y"}}
                 </div>
                 <div routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title  | truncate:[26] | uppercase}}</div>
             </div>
             <div class="post-data">
-                    <a href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
+                    <a  *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</a>
                 <div class="post-stats">
-                    <a href="#" class="post-likes">
+                    <a  class="post-likes">
                         <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
                     </a>
-                    <a href="#" class="post-comments">
+                    <a  class="post-comments">
                         <span>{{eagerPost.commentsCount}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
                     </a>
                 </div>
                 <div class="post-actions">
-                    <button class="view-post">
+                    <button (click)="redirectToViewPost(eagerPost.post.id)" class="view-post">
                         <fa-icon [icon]="faEye"></fa-icon>
                     </button>
-                    <button class="edit-post">
+                    <button class="edit-post" (click)="modifyPost(eagerPost.post.id,createPostModal)">
                         <fa-icon [icon]="faPen"></fa-icon>
                     </button>
-                    <button class="delete-post">
+                    <button (click)="verifyDeletePost(eagerPost.post.id,deleteVerifictionModal)" class="delete-post">
                         <fa-icon [icon]="faTrash"></fa-icon>
                     </button>
                 </div>
@@ -44,3 +44,59 @@
         
     </div>
 </div>
+
+<dialog class="create-post-modal" #createPostModal>
+    <div class="modal-container" >
+      
+      <div class="modal-header" style="grid-area: header;">
+        <fa-icon [icon]="faTimes" class="modal-times-icon" (click)="closeModal(createPostModal)"></fa-icon>
+      </div>
+      
+      <div class="modal-title-area" style="grid-area: title-area;">
+        <input class="modal-input-title" [(ngModel)]="bindedPostObject.title" style="flex-grow: 1;" placeholder="Post Title">
+        <select class="modal-select" [(ngModel)]="selectCategory">
+          <option>{{"categories" | uppercase}}</option>
+          <option *ngFor="let category of categories">{{category.name | uppercase}}</option>
+        </select>
+      </div>
+      
+      <div style="grid-area: textarea-area;">
+        <textarea class="modal-textarea" [(ngModel)]="bindedPostObject.content"></textarea>
+      </div>
+
+      <div style="grid-area: inputFile-area;">
+        <input id="upload-img-input" style="display: none;" name="images[]" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="showUploadedImgs($event)" />
+        
+        <div class="upload-img-container">
+          <div *ngFor="let img of images" class="img-div" (click)="deleteImage(img)">
+            <img src="{{img.url}}" alt="{{img.file.name}}">
+            <fa-icon class="icon-trash" [icon]="faTrash"></fa-icon>
+          </div>
+
+          <label for="upload-img-input" *ngIf="images.length===0">
+            <div class="add-img-div">
+              <fa-icon class="icon-modal-plus" [icon]="faPlus"></fa-icon>
+            </div>
+          </label>
+        
+        </div>
+     
+      </div>
+      <div class="modal-footer" style="grid-area: footer;">
+        <button class="active-btn" (click)="executeModalAction(createPostModal)">{{"publish" | uppercase}}</button>
+        <button class="off-btn" (click)="cancelModalAction(createPostModal)">{{"cancel" | uppercase}}</button>
+      </div>
+    </div>
+</dialog>
+
+<dialog class="verification-modal" #deleteVerifictionModal>
+<div class="verification-modal-container">
+    <div class="verification-modal-header">
+    <h3>You want to delete this post ?</h3>
+    </div>
+    <div class="verification-modal-footer">
+    <button class="verification-modal-btn" (click)="deletePost(deleteVerifictionModal)">Confirm</button>
+    <button class="verification-modal-btn" (click)="cancelPostDeletion(deleteVerifictionModal)">Cancel</button>
+    </div>
+</div>
+</dialog>

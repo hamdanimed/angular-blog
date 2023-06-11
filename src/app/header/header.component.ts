@@ -18,7 +18,7 @@ export class HeaderComponent {
   faSearch = faSearch;
   navOpen="";
 
-  username:string="";
+  username:string="hamdanimed";
   
   constructor(private readonly keycloak: KeycloakService){}
   ngOnInit(){

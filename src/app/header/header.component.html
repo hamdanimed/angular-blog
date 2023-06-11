@@ -12,10 +12,9 @@
         
         <nav class="header-nav" id="header-nav">
 
-            <a class="nav-profile" routerLink="profile/1">
-                <img src="https://picsum.photos/500" alt="profile icon">
-                <!-- <b>HAMDANIMED</b> -->
-                <b>{{this.username ? this.username:"hamdanimed" | uppercase}}</b>
+            <a class="nav-profile" routerLink="profile/{{username}}">
+                <!-- <img src="https://picsum.photos/500" alt="profile icon"> -->
+                <b>{{this.username | uppercase}}</b>
             </a>
             <a href="#" class="home-mobile">
                 <fa-icon class="header-icon" [icon]="faHome"></fa-icon>

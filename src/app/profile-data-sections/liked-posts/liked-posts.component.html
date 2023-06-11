@@ -11,17 +11,17 @@
         <div *ngFor="let eagerPost of eagerPosts;let index=index;" class="post">
             <div class="post-info">
                 <div class="post-timestamp">
-                    {{eagerPost.date | date:"d-MM-y HH:mm"}}
+                    {{eagerPost.date | date:"dd-MM-y HH:mm"}}
                 </div>
                 <a routerLink="/post/{{eagerPost.post.id}}" class="post-title">{{eagerPost.post.title | truncate:[26] | uppercase}}</a>
             </div>
             <div class="post-details">
-                <button href="#" *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</button>
+                <button *ngIf="eagerPost.category" class="post-category">{{eagerPost.category.name | uppercase}}</button>
                 <div class="post-stats">
-                    <a href="#" class="post-likes">
+                    <a class="post-likes">
                         <span>{{eagerPost.likesCount}}</span> <fa-icon [icon]="faThumbsUp"></fa-icon>
                     </a>
-                    <a href="#" class="post-comments">
+                    <a class="post-comments">
                         <span>{{eagerPost.commentsCount}}</span> <fa-icon [icon]="faCommentAlt"></fa-icon>
                     </a>
                 </div>

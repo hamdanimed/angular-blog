@@ -3,6 +3,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlus,faTimes,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '../data-types/category';
 import { Post } from '../data-types/post';
+import { FirebaseService } from '../services/firebase-service/firebase.service';
 
 
 @Component({
@@ -30,7 +31,22 @@ export class HomeFiltersComponent {
   selectSort(sort:string){
     this.selectSortEvent.emit(sort);
   }
-  constructor(){}
+
+  loggedInUser!:any;
+  newPost:{title:string,content:string,date:number,categorieId:number,username:string,pictureUrl:string}={
+    title:"",
+    content:"",
+    date:0,
+    categorieId:0,
+    username:"",
+    pictureUrl:""
+  };
+  selectCategory!:any;
+
+  constructor(private firebase:FirebaseService){}
+  ngOnInit(){
+   this.loggedInUser=this.firebase.user;
+  }
 
   showUploadedImgs(event:any){
     let files=event.target.files;
@@ -67,6 +83,42 @@ export class HomeFiltersComponent {
     dialog.showModal();
   }
   closeModal(dialog:HTMLDialogElement){
+    dialog.close();
+  }
+
+  createNewPost(dialog:HTMLDialogElement){
+    if(this.selectCategory && this.selectCategory.toLowerCase()!=="categories" && this.newPost.content.length && this.newPost.title.length){
+      this.newPost.categorieId=this.categories.filter(category=>category['name'].toLowerCase()===this.selectCategory.toLowerCase() )[0].id;
+      this.newPost.date=Date.now();
+      this.newPost.username=this.loggedInUser.username;
+      this.newPost.pictureUrl="https://picsum.photos/500";
+      console.log(this.newPost);
+      this.firebase.addPost(this.newPost).subscribe(()=>{
+        console.log('create new post');
+        this.newPost={
+          title:"",
+          content:"",
+          date:0,
+          categorieId:0,
+          username:"",
+          pictureUrl:""
+        };
+      })
+      dialog.close();
+    }else{
+      console.log("not all field are filled");
+    }
+
+  }
+  cancelCreateNewPost(dialog:HTMLDialogElement){
+    this.newPost={
+      title:"",
+      content:"",
+      date:0,
+      categorieId:0,
+      username:"",
+      pictureUrl:""
+    };
     dialog.close();
   }
 

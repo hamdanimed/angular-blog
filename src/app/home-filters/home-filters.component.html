@@ -1,61 +1,63 @@
 
-  <div class="bar">
-    <div class="sort-filter ">
-      <button class="tag sort_elem " [ngClass]="{'selected-sort-elem': forYou}" (click)="toggleForYou(forYou)">FOR YOU</button>
-      <button class="tag sort_elem"  [ngClass]="{'selected-sort-elem': sort==='newest'}" (click)="selectSort('newest')">NEWEST</button>
-      <button class="tag sort_elem" [ngClass]="{'selected-sort-elem': sort==='popular'}" (click)="selectSort('popular')">POPULAR
-        <fa-icon [icon]="faCard"></fa-icon></button>
-      </div>
-      <div class="icon plus-position" (click)="showModal(createPostModal)">
-          <fa-icon class="plus" [icon]="faPlus"></fa-icon>
-      </div>
-      
-      <dialog class="create-post-modal" #createPostModal>
-        <form class="modal-container" method="dialog">
-          
-          <div class="modal-header" style="grid-area: header;">
-            <fa-icon [icon]="faTimes" class="modal-times-icon" (click)="closeModal(createPostModal)"></fa-icon>
-          </div>
-          
-          <div class="modal-title-area" style="grid-area: title-area;">
-            <input class="modal-input-title" style="flex-grow: 1;" placeholder="Post Title">
-            <select class="modal-select">
-              <option>{{"categories" | uppercase}}</option>
-              <option *ngFor="let category of categories">{{category.name | uppercase}}</option>
-            </select>
-          </div>
-          
-          <div style="grid-area: textarea-area;">
-            <textarea class="modal-textarea"></textarea>
-          </div>
+<div class="bar">
+  <div class="sort-filter ">
+    <button class="tag sort_elem " [ngClass]="{'selected-sort-elem': forYou}" (click)="toggleForYou(forYou)">FOR YOU</button>
+    <button class="tag sort_elem"  [ngClass]="{'selected-sort-elem': sort==='newest'}" (click)="selectSort('newest')">NEWEST</button>
+    <button class="tag sort_elem" [ngClass]="{'selected-sort-elem': sort==='popular'}" (click)="selectSort('popular')">POPULAR
+      <fa-icon [icon]="faCard"></fa-icon></button>
+  </div>
+  <div class="icon plus-position" (click)="showModal(createPostModal)">
+      <fa-icon class="plus" [icon]="faPlus"></fa-icon>
+  </div>
+  
+  
+  
+</div>
+    
+    
+<dialog class="create-post-modal" #createPostModal>
+  <div class="modal-container">
+    
+    <div class="modal-header" style="grid-area: header;">
+      <fa-icon [icon]="faTimes" class="modal-times-icon" (click)="closeModal(createPostModal)"></fa-icon>
+    </div>
+    
+    <div class="modal-title-area" style="grid-area: title-area;">
 
-          <div style="grid-area: inputFile-area;">
-            <input id="upload-img-input" style="display: none;" name="images[]" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="showUploadedImgs($event)" />
-            
-            <div class="upload-img-container">
-              <div *ngFor="let img of images" class="img-div" (click)="deleteImage(img)">
-                <img src="{{img.url}}" alt="{{img.file.name}}">
-                <fa-icon class="icon-trash" [icon]="faTrash"></fa-icon>
-              </div>
+      <input class="modal-input-title" [(ngModel)]="newPost.title" style="flex-grow: 1;" placeholder="Post Title">
 
-              <label for="upload-img-input" *ngIf="images.length===0">
-                <div class="add-img-div">
-                  <fa-icon class="icon-modal-plus" [icon]="faPlus"></fa-icon>
-                </div>
-              </label>
-            
-            </div>
-         
-          </div>
-          <div class="modal-footer" style="grid-area: footer;">
-            <button class="active-btn">{{"publish" | uppercase}}</button>
-            <button class="off-btn">{{"cancel" | uppercase}}</button>
-          </div>
-        </form>
-      </dialog>
-      
+      <select class="modal-select" [(ngModel)]="selectCategory">
+        <option>{{"categories" | uppercase}}</option>
+        <option *ngFor="let category of categories">{{category.name | uppercase}}</option>
+      </select>
 
     </div>
+    
+    <div style="grid-area: textarea-area;">
+      <textarea class="modal-textarea" [(ngModel)]="newPost.content"></textarea>
+    </div>
 
+    <div style="grid-area: inputFile-area;">
+      <input id="upload-img-input" style="display: none;" name="images[]" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="showUploadedImgs($event)" />
+      
+      <div class="upload-img-container">
+        <div *ngFor="let img of images" class="img-div" (click)="deleteImage(img)">
+          <img src="{{img.url}}" alt="{{img.file.name}}">
+          <fa-icon class="icon-trash" [icon]="faTrash"></fa-icon>
+        </div>
 
-
+        <label for="upload-img-input" *ngIf="images.length===0">
+          <div class="add-img-div">
+            <fa-icon class="icon-modal-plus" [icon]="faPlus"></fa-icon>
+          </div>
+        </label>
+      
+      </div>
+    
+    </div>
+    <div class="modal-footer" style="grid-area: footer;">
+      <button class="active-btn" type="button" (click)="createNewPost(createPostModal)">{{"publish" | uppercase}}</button>
+      <button class="off-btn" type="button" (click)="cancelCreateNewPost(createPostModal)" >{{"cancel" | uppercase}}</button>
+    </div>
+  </div>
+</dialog>

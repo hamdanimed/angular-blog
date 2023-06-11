@@ -193,12 +193,21 @@
 .like:hover{
   color: #000000;
   border-color:#000000 ;
+}
 
+.like-active{
+  color: #000000;
+  border-color:#000000 ;
 }
 
 .comment:hover{
   color: #000000;
   border-color:#000000 ;
+}
+
+.follow-span{
+  text-decoration: underline;
+  cursor:pointer;
 }
 
 @media (max-width:768px){

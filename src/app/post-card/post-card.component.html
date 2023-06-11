@@ -23,14 +23,17 @@
   <div class="card-post__header">
     <div class="card-post__header-left">
 
-      <img *ngIf="user && avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic" >
-      <div *ngIf="!user || !avatar" class="card-post__profile-pic skeleton"></div>
+      <!-- <img *ngIf="user && avatar" routerLink="/profile/{{user.id}}" src="{{avatar.url}}" alt="{{avatar.alt}}" class="card-post__profile-pic" >
+      <div *ngIf="!user || !avatar" class="card-post__profile-pic skeleton"></div> -->
       <!-- <img routerLink="/profile/{{userId}}" src="https://via.placeholder.com/50x50" alt="profile picture" class="card-post__profile-pic" > -->
 
       <div class="card-post__profile-info" >
 
-        <h4 *ngIf="user" class="card-post__username">{{user.username}}<span>FOLLOW</span></h4>
-        <div *ngIf="!user" class="card-post__username skeleton skeleton-username"></div>
+        <h4 *ngIf="postUser" class="card-post__username">
+          {{postUser.username}}
+          <span *ngIf="loggedInUser.username !== postUser.username" (click)="toggleFollow()" class="follow-span">{{followText | uppercase}}</span>
+        </h4>
+        <div *ngIf="!postUser" class="card-post__username skeleton skeleton-username"></div>
 
         <p *ngIf="date" class="card-post__date">{{date | date:"HH:mm, d MMMM y"}}</p>
         <div *ngIf="!date" class="card-post__date skeleton skeleton-date"></div>
@@ -51,10 +54,10 @@
     <div *ngIf="!post" class="card-post__description skeleton skeleton-description"></div>
     
     <a *ngIf="post" routerLink="/post/{{post.id}}">
-      <div *ngIf="picture" class="card-post__image">
-        <img src="{{picture.url}}" alt="{{picture.alt}}" >
+      <div *ngIf="post.pictureUrl.length" class="card-post__image">
+        <img src="{{post.pictureUrl}}" alt="post image" >
       </div>
-      <div *ngIf="post.picturesId.length !==0 && !picture" class="card-post__image skeleton skeleton-image"></div>
+      <div *ngIf="post.pictureUrl.length !==0 && !picture" class="card-post__image skeleton skeleton-image"></div>
     </a>
 
     <!-- <h2 class="card-post__title">2022–23 UEFA Champions League</h2> -->
@@ -70,12 +73,12 @@
  </div>
   <div *ngIf="post" class="card-post__footer">
 
-      <button *ngIf="likesCounter!==undefined" class="card-post__tag-btn like">
+      <button *ngIf="likesCounter!==undefined" class="card-post__tag-btn like" [ngClass]="{'like-active':didUserLikePost}" (click)="toggleLikePost()">
         <fa-icon class="icon-size" [icon]="falike"></fa-icon>
         <!-- 300 -->
         {{likesCounter}}
       </button>
-      <button *ngIf="commentsCounter!==undefined" class="card-post__tag-btn comment">
+      <button *ngIf="commentsCounter!==undefined" (click)="redirectToPost()" class="card-post__tag-btn comment">
         <fa-icon class="icon-size" [icon]="facomment"></fa-icon>
         <!-- 222 -->
         {{commentsCounter}}

@@ -25,8 +25,14 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TruncatePipe } from './pipe/truncatePipe';
 import { PostModalComponent } from './post-modal/post-modal.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+
+import { initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp } from '@angular/fire/app';
+// import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
@@ -73,6 +79,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
    ),
    KeycloakAngularModule,
    AppRoutingModule,
+  //  AngularFireModule.initializeApp(environment.firebase),
+  //  AngularFirestoreModule, // for firestore
+  //  AngularFireDatabaseModule,
    provideFirebaseApp(() => initializeApp(environment.firebase)),
    provideFirestore(() => getFirestore()),
    provideStorage(() => getStorage()),

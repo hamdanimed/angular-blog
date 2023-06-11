@@ -112,6 +112,11 @@
     color: var(--primary-grey);
     border-radius: 10px;
 }
+.post-likes:hover,.post-comments:hover{
+    color:black;
+    border-color:black;
+}
+
 .post-actions{
     display: flex;
     gap:0.2rem; 
