@@ -74,9 +74,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-   ),
+  //   HttpClientInMemoryWebApiModule.forRoot(
+  //     InMemoryDataService, { dataEncapsulation: false }
+  //  ),
    KeycloakAngularModule,
    AppRoutingModule,
   //  AngularFireModule.initializeApp(environment.firebase),

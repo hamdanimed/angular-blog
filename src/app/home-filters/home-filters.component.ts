@@ -1,9 +1,10 @@
-import { Component, Output,Input,EventEmitter } from '@angular/core';
+import { Component, Output,Input,EventEmitter,ViewChild,ElementRef } from '@angular/core';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlus,faTimes,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '../data-types/category';
 import { Post } from '../data-types/post';
 import { FirebaseService } from '../services/firebase-service/firebase.service';
+import { CloudinaryService } from '../services/cloudinary/cloudinary.service';
 
 
 @Component({
@@ -31,6 +32,12 @@ export class HomeFiltersComponent {
   selectSort(sort:string){
     this.selectSortEvent.emit(sort);
   }
+  @ViewChild('imgInput', { static: true }) imgInput!: ElementRef<HTMLInputElement>;
+
+  getFile(){
+    const fileInput = this.imgInput.nativeElement;
+    return fileInput.files;
+  }
 
   loggedInUser!:any;
   newPost:{title:string,content:string,date:number,categorieId:number,username:string,pictureUrl:string}={
@@ -43,7 +50,7 @@ export class HomeFiltersComponent {
   };
   selectCategory!:any;
 
-  constructor(private firebase:FirebaseService){}
+  constructor(private firebase:FirebaseService,private cloudinary:CloudinaryService){}
   ngOnInit(){
    this.loggedInUser=this.firebase.user;
   }
@@ -87,24 +94,32 @@ export class HomeFiltersComponent {
   }
 
   createNewPost(dialog:HTMLDialogElement){
+
+    
     if(this.selectCategory && this.selectCategory.toLowerCase()!=="categories" && this.newPost.content.length && this.newPost.title.length){
       this.newPost.categorieId=this.categories.filter(category=>category['name'].toLowerCase()===this.selectCategory.toLowerCase() )[0].id;
       this.newPost.date=Date.now();
       this.newPost.username=this.loggedInUser.username;
-      this.newPost.pictureUrl="https://picsum.photos/500";
-      console.log(this.newPost);
-      this.firebase.addPost(this.newPost).subscribe(()=>{
-        console.log('create new post');
-        this.newPost={
-          title:"",
-          content:"",
-          date:0,
-          categorieId:0,
-          username:"",
-          pictureUrl:""
-        };
+      this.cloudinary.uploadPhoto(this.getFile()||new FileList()).subscribe(
+        (data:any)=>{
+          console.log(data)
+          this.newPost.pictureUrl=data.url;
+          console.log(this.newPost);
+          this.firebase.addPost(this.newPost).subscribe(()=>{
+              console.log('create new post');
+              this.newPost={
+                title:"",
+                content:"",
+                date:0,
+                categorieId:0,
+                username:"",
+                pictureUrl:""
+              };
+              dialog.close();
+          })
+      
       })
-      dialog.close();
+      
     }else{
       console.log("not all field are filled");
     }

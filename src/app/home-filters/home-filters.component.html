@@ -38,7 +38,7 @@
     </div>
 
     <div style="grid-area: inputFile-area;">
-      <input id="upload-img-input" style="display: none;" name="images[]" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="showUploadedImgs($event)" />
+      <input id="upload-img-input" #imgInput style="display: none;" name="images[]" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="showUploadedImgs($event)" />
       
       <div class="upload-img-container">
         <div *ngFor="let img of images" class="img-div" (click)="deleteImage(img)">
