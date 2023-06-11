@@ -50,7 +50,7 @@
     <h2 *ngIf="post" class="card-post__title">{{post.title | uppercase}}</h2>
     <div *ngIf="!post" class="card-post__title skeleton skeleton-title"></div>
     
-    <p *ngIf="post" class="card-post__description">{{post.content}}</p>
+  <p *ngIf="post" class="card-post__description">{{post.content | truncate:[150]}} <a *ngIf="post.content.length > 150" routerLink="/post/{{post.id}}">Read more</a></p>
     <div *ngIf="!post" class="card-post__description skeleton skeleton-description"></div>
     
     <a *ngIf="post" routerLink="/post/{{post.id}}">

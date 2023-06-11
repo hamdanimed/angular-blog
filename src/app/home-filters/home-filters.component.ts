@@ -36,7 +36,7 @@ export class HomeFiltersComponent {
 
   getFile(){
     const fileInput = this.imgInput.nativeElement;
-    return fileInput.files;
+    return fileInput.files||new FileList();
   }
 
   loggedInUser!:any;
@@ -94,16 +94,17 @@ export class HomeFiltersComponent {
   }
 
   createNewPost(dialog:HTMLDialogElement){
+    console.log("createNewPost");
 
     
     if(this.selectCategory && this.selectCategory.toLowerCase()!=="categories" && this.newPost.content.length && this.newPost.title.length){
       this.newPost.categorieId=this.categories.filter(category=>category['name'].toLowerCase()===this.selectCategory.toLowerCase() )[0].id;
       this.newPost.date=Date.now();
       this.newPost.username=this.loggedInUser.username;
-      if(this.getFile() !== null){
-        this.cloudinary.uploadPhoto(this.getFile() as FileList).subscribe(
-          (data:any)=>{
-            // console.log(data)
+      if( this.getFile().length>0){
+        this.cloudinary.uploadAsyncPhoto(this.getFile()).subscribe(
+          (data)=> {
+
             this.newPost.pictureUrl=data.url;
             // console.log(this.newPost);
             this.firebase.addPost(this.newPost).subscribe(()=>{
@@ -117,9 +118,9 @@ export class HomeFiltersComponent {
                   pictureUrl:""
                 };
                 dialog.close();
-            })
-        })
-
+          }
+        )})
+       
       }else{
         this.firebase.addPost(this.newPost).subscribe(()=>{
           console.log('create new post');

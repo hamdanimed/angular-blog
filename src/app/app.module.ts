@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data-service/in-memory-data.service';
 import { FormsModule } from '@angular/forms';
@@ -41,9 +41,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8081/',
+        url: 'http://localhost:8080/',
         realm: 'pfsrealm',
         clientId: 'blog-app',
+      
       },
       initOptions: {
         onLoad: 'login-required',
@@ -92,8 +93,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
     {
       provide:APP_INITIALIZER,
       useFactory:initializeKeycloak,
+      
       multi:true,
-      deps:[KeycloakService]
+      deps:[KeycloakService],
+
     }
 ],
   bootstrap: [AppComponent]
