@@ -35,13 +35,14 @@ import { provideFirebaseApp } from '@angular/fire/app';
 
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
         url: 'http://localhost:8081/',
-        realm: 'PFS',
+        realm: 'pfsrealm',
         clientId: 'blog-app'
       },
       initOptions: {
@@ -68,6 +69,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HomePageComponent,
     TruncatePipe,
     PostModalComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     FormsModule,
@@ -87,12 +89,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
    provideStorage(() => getStorage()),
   ],
   providers: [
-    // {
-    //   provide:APP_INITIALIZER,
-    //   useFactory:initializeKeycloak,
-    //   multi:true,
-    //   deps:[KeycloakService]
-    // }
+    {
+      provide:APP_INITIALIZER,
+      useFactory:initializeKeycloak,
+      multi:true,
+      deps:[KeycloakService]
+    }
 ],
   bootstrap: [AppComponent]
 })

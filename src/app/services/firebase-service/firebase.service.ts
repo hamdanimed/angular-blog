@@ -13,10 +13,6 @@ export class FirebaseService {
   constructor(private db:Firestore) { }
   getCategories(){
     const aCollection=collection(this.db,'categories');
-    // collectionData(aCollection).subscribe((items)=>{
-    //   console.log(items)
-    // })
-    const docRef=collection(this.db,"categories") ;
     return collectionData<any>(aCollection,{idField:'id'});
   }
   getCategory(categorieId:number){

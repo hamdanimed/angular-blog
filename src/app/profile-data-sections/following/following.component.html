@@ -11,8 +11,8 @@
             <!-- <a href="/profile/{{user.id}}">
                 <img  class="profile-picture" src="https://picsum.photos/200" alt="placeholder">
             </a> -->
-            <span class="profile-name">{{user.username}}</span>
-            <button class="profile-follow" (click)="unfollow(following[index]['id'])">UNFOLLOW</button>
+            <a class="profile-name" href="/profile/{{user.username}}">{{user.username}}</a>
+            <button class="profile-follow" *ngIf="loggedInUser.username===userInPage.username" (click)="unfollow(following[index]['id'])">UNFOLLOW</button>
         </div>
         <!-- <div class="following-profile">
             <img class="profile-picture" src="https://picsum.photos/200" alt="profile pic">

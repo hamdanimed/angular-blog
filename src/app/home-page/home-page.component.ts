@@ -39,7 +39,8 @@ export class HomePageComponent {
 
     if(this.forYou){
       let followed = this.following.map(follow=> {return follow.idFollowed} );
-      this.shownPosts = this.shownPosts.filter((post)=> followed.includes(post.userId))
+      // console.log(followed,this.shownPosts)
+      this.shownPosts = this.shownPosts.filter((post)=> followed.includes(post.username))
     }
 
     if(this.sort==='newest'){
@@ -83,7 +84,7 @@ export class HomePageComponent {
     // })
     this.firebase.getFollowers().subscribe((followers)=>{
       this.following=followers.filter(follow=>follow.idFollower===this.loggedInUser.username);
-      console.log("following",this.following);
+      // console.log("following",this.following);
       this.updateShownPosts();
     })
     // this.fakeDataService.getFollowing(1).subscribe((following:Follow[])=>{

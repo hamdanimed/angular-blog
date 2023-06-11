@@ -8,6 +8,7 @@ import { LikedPostsComponent } from './profile-data-sections/liked-posts/liked-p
 import { FollowingComponent } from './profile-data-sections/following/following.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostCommentComponent } from './post-comment/post-comment.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes=[
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -17,10 +18,11 @@ const routes: Routes=[
   {path:'profile',redirectTo:'profile/1',pathMatch:'full'},
   {path:'profile/:id',component:ProfilePageComponent,children:[
     {path:'',redirectTo:'liked-posts',pathMatch:'full'},
-    {path:'my-posts',component:MyPostsComponent},
+    {path:'user-posts',component:MyPostsComponent},
     {path:'liked-posts',component:LikedPostsComponent},
     {path:'following',component:FollowingComponent}
-  ]}
+  ]},
+  { path:'**', pathMatch: 'full', component: PagenotfoundComponent}
 ]
 
 

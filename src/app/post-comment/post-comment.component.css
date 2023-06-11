@@ -50,13 +50,14 @@
   display: flex;
   flex-direction: column;
 }
-.card-post__username h4{
+.card-post__username > a{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.0625rem;
   color: #000000;
+  text-decoration: none;
 }
 .card-post__username span{
   font-family: 'Inter';

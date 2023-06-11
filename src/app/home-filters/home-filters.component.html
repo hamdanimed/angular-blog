@@ -4,7 +4,8 @@
     <button class="tag sort_elem " [ngClass]="{'selected-sort-elem': forYou}" (click)="toggleForYou(forYou)">FOR YOU</button>
     <button class="tag sort_elem"  [ngClass]="{'selected-sort-elem': sort==='newest'}" (click)="selectSort('newest')">NEWEST</button>
     <button class="tag sort_elem" [ngClass]="{'selected-sort-elem': sort==='popular'}" (click)="selectSort('popular')">POPULAR
-      <fa-icon [icon]="faCard"></fa-icon></button>
+      <!-- <fa-icon [icon]="faCard"></fa-icon> -->
+    </button>
   </div>
   <div class="icon plus-position" (click)="showModal(createPostModal)">
       <fa-icon class="plus" [icon]="faPlus"></fa-icon>

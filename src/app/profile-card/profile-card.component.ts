@@ -62,8 +62,8 @@ export class ProfileCardComponent {
     //   })
     // })
     this.firebase.getFollowers().subscribe(followers=>{
-      this.followers=followers.filter(follow=>follow.idFollowed===this.loggedInUser.username);
-      this.following=followers.filter(follow=>follow.idFollower=this.loggedInUser.username);
+      this.followers=followers.filter(follow=>follow.idFollowed===this.userInPage.username);
+      this.following=followers.filter(follow=>follow.idFollower===this.userInPage.username);
     })
     this.firebase.getFollowers().subscribe((followers)=>{
       console.log(followers);

@@ -43,6 +43,9 @@
 .profile-name{
     font-weight: var(--font-bold);
     font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: none;
+    color:inherit;
 }
 .profile-follow{
     font-weight: var(--font-bold);

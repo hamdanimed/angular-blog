@@ -58,6 +58,9 @@ export class MyPostsComponent {
 
   constructor(private firebase:FirebaseService,private fakeDataService:FakeDataService,private route:ActivatedRoute,private router:Router){}
   ngOnInit(){
+    this.firebase.getCategories().subscribe(categories=>{
+      this.categories=categories;
+    })
     //get the route parameters from the parent route
     this.route.parent?.params.subscribe((params)=>{
       this.loggedInUser=this.firebase.user;
@@ -70,10 +73,10 @@ export class MyPostsComponent {
           let eagerPost :any = {post:{},date:0,category:"",commentsCount:0,likesCount:0};
           eagerPost.post=post;
           eagerPost.date=new Date(eagerPost.post.date);
-          this.firebase.getCategories().subscribe((categories)=>{
-            this.categories=categories;
-            eagerPost.category=categories.filter(categorie=>{return categorie['id']===String(eagerPost.post.categorieId)})[0];
-          })
+          eagerPost.category=this.categories.filter(categorie=>{return categorie['id']===String(eagerPost.post.categorieId)})[0];
+          // this.firebase.getCategories().subscribe((categories)=>{
+          //   this.categories=categories;
+          // })
           this.firebase.getComments().subscribe((comments)=>{
             eagerPost.commentsCount=comments.filter(comment=>comment['postId']===eagerPost.post.id).length;
           })
