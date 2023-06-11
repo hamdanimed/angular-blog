@@ -7,7 +7,7 @@
     </div> -->
     <div class="profile-info">
         <h3>{{userInPage.username | uppercase}}
-        <a href="http://localhost:8081/realms/pfsrealm/account/#/">
+        <a style="text-decoration: none;color: inherit;" href="http://localhost:8081/realms/pfsrealm/account/#/">
             <fa-icon *ngIf="loggedInUser.username === userInPage.username" [icon]="faEdit"></fa-icon>
         </a> 
         </h3>
