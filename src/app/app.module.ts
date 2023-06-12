@@ -41,7 +41,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080/',
+        url: 'http://localhost:8081/',
         realm: 'pfsrealm',
         clientId: 'blog-app',
       
