@@ -61,7 +61,7 @@ export class MyPostsComponent {
 
   getFile(){
     const fileInput = this.imgInput.nativeElement;
-    return fileInput.files;
+    return fileInput.files||new FileList();
   }
 
   constructor(private firebase:FirebaseService,private cloudinary:CloudinaryService,private fakeDataService:FakeDataService,private route:ActivatedRoute,private router:Router){}
@@ -199,8 +199,8 @@ export class MyPostsComponent {
         this.bindedPostObject.date=Date.now();
         this.bindedPostObject.username=this.loggedInUser.username;
         // this.bindedPostObject.pictureUrl="https://picsum.photos/500";
-        if(this.getFile() !== null){
-          this.cloudinary.uploadPhoto(this.getFile() as FileList).subscribe(
+        if(this.getFile().length>0){
+          this.cloudinary.uploadAsyncPhoto(this.getFile()).subscribe(
             (data:any)=>{
               // console.log(data)
               this.bindedPostObject.pictureUrl=data.url;
@@ -243,8 +243,8 @@ export class MyPostsComponent {
         this.bindedPostObject.username=this.loggedInUser.username;
         // this.bindedPostObject.pictureUrl="https://picsum.photos/500";
 
-        if(this.getFile() !== null){
-          this.cloudinary.uploadPhoto(this.getFile() as FileList).subscribe(
+        if(this.getFile().length>0){
+          this.cloudinary.uploadAsyncPhoto(this.getFile()).subscribe(
             (data:any)=>{
               // console.log(data)
               this.bindedPostObject.pictureUrl=data.url;
