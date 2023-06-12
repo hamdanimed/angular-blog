@@ -12,7 +12,7 @@
             <a href="/profile/{{postUser.username}}">{{postUser.username}}</a>
             <span (click)="toggleFollow()" class="follow-span">{{followText | uppercase}}</span>
           </h4>
-          <p *ngIf="date" class="card-post__date">{{date | date:"h:mm, d MMMM y"}}</p>
+          <p *ngIf="date" class="card-post__date">{{date | date:"HH:mm, d MMMM y"}}</p>
         </div>
       </div>
     </div>
@@ -53,12 +53,12 @@
 
   </div>
   <div class="generate-comment">
-    <h3 class="comment-title">Comment</h3>
+    <h3 class="comment-title">Comments ({{comments.length}})</h3>
     <div *ngIf="comments" >
       <div *ngFor="let comment of comments;let index=index;" class="comment-container">
         <!-- <img *ngIf="commentsUsersAvatars[index]" routerLink="/profile/{{comment.userId}}" src="{{commentsUsersAvatars[index].url}}" alt="{{commentsUsersAvatars[index].alt}}" class="profile-pic-comment"> -->
         <div *ngIf="commentsUsers[index] &&  comment.id!==commentToBeEdited.id" class="comment-subcontainer">
-          <span class="comment-username">{{commentsUsers[index].username}}</span>
+          <span class="comment-username">{{commentsUsers[index].username}} <span class="comment-date">{{comment.date | date:"HH:mm, d MMMM y"}}</span></span>
           <p class="style-comment">{{comment.content}}</p>
         </div>
         

@@ -124,6 +124,7 @@ export class PostCommentComponent {
         // console.log(comments.filter(comment=>comment['postId']===this.post.id))
         this.comments=comments.filter(comment=>comment['postId']===this.post.id); //can get empty array if the post doesnt have comments
         //after getting the comments array
+        this.comments.sort((a:any,b:any)=>  (a.date-b.date))
         //get the users that commented on the post
         this.commentsUsers=this.comments.map(comment=>{return {username:comment['username']}});
         this.commentsCounter=this.comments.length;

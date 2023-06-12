@@ -308,6 +308,12 @@
   justify-content: center;
   gap:0.5rem;
 }
+.comment-date{
+  font-weight: 100;
+  text-align: end;
+  font-size:0.75rem;
+  padding-left: 0.8rem;
+}
 .modal-btn{
   background: #FFFFFF;
   border: 2px solid var(--primary-grey);
