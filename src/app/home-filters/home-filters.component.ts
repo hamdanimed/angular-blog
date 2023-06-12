@@ -117,6 +117,7 @@ export class HomeFiltersComponent {
                   username:"",
                   pictureUrl:""
                 };
+                this.images=[];
                 dialog.close();
           }
         )})

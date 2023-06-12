@@ -58,6 +58,7 @@ export class HeaderComponent {
 
       // let userExist=false;
       const loggedInUser={username:profil.username,email:profil.email};
+      this.firebase.user.username=loggedInUser.username;
       let generatedUsername="";
       this.firebase.getUsers().subscribe(users=>{
         
@@ -75,7 +76,7 @@ export class HeaderComponent {
             generatedUsername+=String(val);
           }
           this.username=generatedUsername;
-       
+          console.log({username:this.username,email:loggedInUser.email})
           this.firebase.addUser({username:this.username,email:loggedInUser.email}).subscribe(()=>{
             console.log('user was added');
           })
